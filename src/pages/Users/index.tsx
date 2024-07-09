@@ -5,7 +5,6 @@ import { Header } from '../../components/Header';
 
 export const Page = () => {
 	const navigate = useNavigate();
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		navigate('blog');
 	}, []);
