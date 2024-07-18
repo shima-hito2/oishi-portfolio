@@ -15,7 +15,7 @@ export const NewsPage: FC = () => {
 			<Typography>
 				{dateToString(item?.datetime ?? '', 'YYYY/MM/DD')}
 			</Typography>
-			<Typography>{item?.title}</Typography>
+			<Typography sx={{ fontSize: 24, my: 2 }}>{item?.title}</Typography>
 			<img
 				style={{ width: '100%' }}
 				src={`../../public/images/${item?.imgPath}`}
@@ -27,7 +27,14 @@ export const NewsPage: FC = () => {
 					color='inherit'
 					variant='outlined'
 					size='large'
-					sx={{ borderRadius: 0, my: 5, width: '20%', height: 60 }}
+					sx={{
+						borderRadius: 0,
+						my: 5,
+						width: '20%',
+						height: 60,
+						textWrap: 'nowrap',
+						minWidth: 120,
+					}}
 					onClick={() => {
 						navigate('/news/list');
 					}}
