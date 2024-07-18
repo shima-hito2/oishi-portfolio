@@ -36,7 +36,7 @@ export const NewsItems: FC<Props> = (props: Props) => {
 			>
 				<img
 					style={{ width: '100%' }}
-					src={`../../public/images/${item.imgPath}`}
+					src={item.imgPath}
 					alt={item.imgPath}
 				/>
 				<Typography>
