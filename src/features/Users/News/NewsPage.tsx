@@ -21,7 +21,7 @@ export const NewsPage: FC = () => {
 				src={`../../public/images/${item?.imgPath}`}
 				alt={item?.imgPath}
 			/>
-			<Typography>{item?.details}</Typography>
+			<Typography>{item?.detail}</Typography>
 			<Box sx={{ textAlign: 'center' }}>
 				<Button
 					color='inherit'
