@@ -18,7 +18,7 @@ export const NewsPage: FC = () => {
 			<Typography sx={{ fontSize: 24, my: 2 }}>{item?.title}</Typography>
 			<img
 				style={{ width: '100%' }}
-				src={`../../public/images/${item?.imgPath}`}
+				src={item?.imgPath}
 				alt={item?.imgPath}
 			/>
 			<Typography>{item?.detail}</Typography>
