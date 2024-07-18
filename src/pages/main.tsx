@@ -11,6 +11,8 @@ import { Recruit } from '../features/Users/Recruit';
 import { Page as AdminTop } from './Admin';
 import { Page as UsersTop } from './Users';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 const router = createHashRouter([
 	{
 		path: '/',
@@ -61,9 +63,22 @@ const router = createHashRouter([
 	},
 ]);
 
+const theme = createTheme({
+	typography: {
+		fontFamily: [
+			'Yu Mincho Light',
+			'YuMincho',
+			'Yu Mincho',
+			'sans-serif',
+		].join(','),
+	},
+});
+
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<ThemeProvider theme={theme}>
+			<RouterProvider router={router} />
+		</ThemeProvider>
 	</React.StrictMode>,
 );
