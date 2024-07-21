@@ -97,7 +97,7 @@ export const Header: FC<Props> = (props: Props) => {
 									<Link to='/news/list'>お知らせ</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/recruit'>採用情報</Link>
+									<Link to='/recruit/list'>採用情報</Link>
 								</MenuItem>
 							</Menu>
 						</Box>
@@ -156,7 +156,7 @@ export const Header: FC<Props> = (props: Props) => {
 								onClick={() => {
 									setAnchorElNav(null);
 								}}
-								to='/recruit'
+								to='/recruit/list'
 								style={{
 									color: 'white',
 									fontSize: '14px',

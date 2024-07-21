@@ -7,7 +7,9 @@ import { Blog } from '../features/Users/Blog';
 import { NewsList } from '../features/Users/News/NewsList';
 import { NewsPage } from '../features/Users/News/NewsPage';
 import { News } from '../features/Users/News/index';
-import { Recruit } from '../features/Users/Recruit';
+import { RecruitList } from '../features/Users/Recruit/RecruitList';
+import { RecruitPage } from '../features/Users/Recruit/RecruitPage';
+import { Recruit } from '../features/Users/Recruit/index';
 import { Page as AdminTop } from './Admin';
 import { Page as UsersTop } from './Users';
 
@@ -43,6 +45,16 @@ const router = createHashRouter([
 			{
 				path: '/recruit',
 				element: <Recruit />,
+				children: [
+					{
+						path: '/recruit/list',
+						element: <RecruitList />,
+					},
+					{
+						path: '/recruit/item/:id',
+						element: <RecruitPage />,
+					},
+				],
 			},
 		],
 	},
