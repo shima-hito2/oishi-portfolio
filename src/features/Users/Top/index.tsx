@@ -45,6 +45,7 @@ export const Top: FC = () => {
 						left: '50%',
 						transform: 'translateY(-50%) translateX(-50%)',
 						textAlign: 'center',
+						textWrap: 'nowrap',
 					}}
 				>
 					<Typography
