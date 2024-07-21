@@ -11,7 +11,11 @@ export const NewsPage: FC = () => {
 	const navigate = useNavigate();
 
 	return (
-		<Box>
+		<Box
+			sx={{
+				color: '#FFF',
+			}}
+		>
 			<Typography>
 				{dateToString(item?.datetime ?? '', 'YYYY/MM/DD')}
 			</Typography>

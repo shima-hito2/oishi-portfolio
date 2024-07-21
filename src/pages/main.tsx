@@ -10,16 +10,21 @@ import { News } from '../features/Users/News/index';
 import { RecruitList } from '../features/Users/Recruit/RecruitList';
 import { RecruitPage } from '../features/Users/Recruit/RecruitPage';
 import { Recruit } from '../features/Users/Recruit/index';
+import { Top as UserTop } from '../features/Users/Top/index';
 import { Page as AdminTop } from './Admin';
-import { Page as UsersTop } from './Users';
+import { Page as Users } from './Users';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const router = createHashRouter([
 	{
 		path: '/',
-		element: <UsersTop />,
+		element: <Users />,
 		children: [
+			{
+				path: '/top',
+				element: <UserTop />,
+			},
 			{
 				path: '/blog',
 				element: <Blog />,

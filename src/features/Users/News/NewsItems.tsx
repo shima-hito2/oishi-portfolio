@@ -28,6 +28,7 @@ export const NewsItems: FC<Props> = (props: Props) => {
 						'&:hover': {
 							filter: 'opacity(80%)',
 						},
+						color: '#FFF',
 					},
 				}}
 				onClick={() => {

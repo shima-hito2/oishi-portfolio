@@ -11,6 +11,7 @@ export const NewsList: FC = () => {
 					display: { md: 'flex' },
 					justifyContent: { md: 'space-between' },
 					flexWrap: 'wrap',
+					color: '#FFF',
 				}}
 			>
 				{items.map(item => (

@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { type FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 type Props = {
 	title: string;
@@ -17,6 +17,8 @@ type Props = {
 
 export const Header: FC<Props> = (props: Props) => {
 	const { title } = props;
+
+	const navigate = useNavigate();
 
 	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -37,20 +39,30 @@ export const Header: FC<Props> = (props: Props) => {
 	};
 	return (
 		<>
-			<AppBar position='static'>
+			<AppBar
+				sx={{
+					position: 'fixed',
+					color: '#FFF',
+					backgroundColor: '#fff0',
+					boxShadow: 'none',
+				}}
+			>
 				<Container maxWidth='xl'>
 					<Toolbar disableGutters>
 						<Typography
 							variant='h6'
 							noWrap
 							component='a'
-							href='#app-bar-with-responsive-menu'
+							onClick={() => {
+								navigate('/top');
+							}}
 							sx={{
 								mr: 2,
 								display: { xs: 'none', md: 'flex' },
 								letterSpacing: '.3rem',
-								color: 'inherit',
+								color: '#FFF',
 								textDecoration: 'none',
+								cursor: 'pointer',
 							}}
 						>
 							{title}
@@ -68,7 +80,7 @@ export const Header: FC<Props> = (props: Props) => {
 								aria-controls='menu-appbar'
 								aria-haspopup='true'
 								onClick={handleOpenNavMenu}
-								color='inherit'
+								sx={{ color: '#FFF' }}
 							>
 								<MenuIcon fontSize='large' />
 							</IconButton>
@@ -105,14 +117,17 @@ export const Header: FC<Props> = (props: Props) => {
 							variant='h5'
 							noWrap
 							component='a'
-							href='#app-bar-with-responsive-menu'
+							onClick={() => {
+								navigate('/top');
+							}}
 							sx={{
 								mr: 2,
 								display: { xs: 'flex', md: 'none' },
 								flexGrow: 1,
 								letterSpacing: '.3rem',
-								color: 'inherit',
+								color: '#FFF',
 								textDecoration: 'none',
+								cursor: 'pointer',
 							}}
 						>
 							{title}
@@ -130,7 +145,7 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/blog'
 								style={{
-									color: 'white',
+									color: '#FFF',
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
@@ -144,7 +159,7 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/news/list'
 								style={{
-									color: 'white',
+									color: '#FFF',
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
@@ -158,7 +173,7 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/recruit/list'
 								style={{
-									color: 'white',
+									color: '#FFF',
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
@@ -171,8 +186,7 @@ export const Header: FC<Props> = (props: Props) => {
 						<Box sx={{ flexGrow: 0 }}>
 							<IconButton
 								onClick={handleOpenUserMenu}
-								sx={{ p: 0 }}
-								color='inherit'
+								sx={{ p: 0, color: '#FFF' }}
 								size='large'
 							>
 								<AccountCircle />
@@ -203,6 +217,7 @@ export const Header: FC<Props> = (props: Props) => {
 					</Toolbar>
 				</Container>
 			</AppBar>
+			<Box sx={{ height: 64, width: '100%' }} />
 		</>
 	);
 };

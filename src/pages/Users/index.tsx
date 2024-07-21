@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../../components/Header';
 
@@ -10,11 +9,7 @@ export const Page = () => {
 	return (
 		<>
 			<Header title='ほげほげ' />
-			<Container>
-				{/* <Box sx={{ mt: 4 }}>一般の内容</Box>
-                <Link to='/admin'>管理画面へ</Link> */}
-				<Outlet />
-			</Container>
+			<Outlet />
 		</>
 	);
 };
