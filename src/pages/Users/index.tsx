@@ -8,7 +8,7 @@ export const Page = () => {
 	// }, []);
 	return (
 		<>
-			<Header title='ほげほげ' />
+			<Header title='ポートフォリオ' />
 			<Outlet />
 		</>
 	);

@@ -111,6 +111,12 @@ export const Header: FC<Props> = (props: Props) => {
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Link to='/recruit/list'>採用情報</Link>
 								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/home-page'>ホームページ</Link>
+								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/ec-site'>ECサイト</Link>
+								</MenuItem>
 							</Menu>
 						</Box>
 						<Typography
@@ -180,6 +186,34 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 							>
 								採用情報
+							</Link>
+							<Link
+								onClick={() => {
+									setAnchorElNav(null);
+								}}
+								to='/home-page'
+								style={{
+									color: '#FFF',
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+								}}
+							>
+								ホームページ
+							</Link>
+							<Link
+								onClick={() => {
+									setAnchorElNav(null);
+								}}
+								to='/ec-site'
+								style={{
+									color: '#FFF',
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+								}}
+							>
+								ECサイト
 							</Link>
 						</Box>
 
