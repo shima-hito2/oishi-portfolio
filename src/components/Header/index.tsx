@@ -54,7 +54,7 @@ export const Header: FC<Props> = (props: Props) => {
 							noWrap
 							component='a'
 							onClick={() => {
-								navigate('/top');
+								navigate('/');
 							}}
 							sx={{
 								mr: 2,
@@ -124,7 +124,7 @@ export const Header: FC<Props> = (props: Props) => {
 							noWrap
 							component='a'
 							onClick={() => {
-								navigate('/top');
+								navigate('/');
 							}}
 							sx={{
 								mr: 2,

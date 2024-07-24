@@ -23,7 +23,7 @@ const router = createHashRouter([
 		element: <Users />,
 		children: [
 			{
-				path: '/top',
+				path: '/',
 				element: <UserTop />,
 			},
 			{
