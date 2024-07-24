@@ -4,6 +4,7 @@ import './index.css';
 
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Blog } from '../features/Users/Blog';
+import { Top as HPTop } from '../features/Users/HomePage/Top';
 import { NewsList } from '../features/Users/News/NewsList';
 import { NewsPage } from '../features/Users/News/NewsPage';
 import { News } from '../features/Users/News/index';
@@ -37,6 +38,12 @@ const router = createHashRouter([
 			{
 				path: '/home-page',
 				element: <HomePage />,
+				children: [
+					{
+						path: '/home-page',
+						element: <HPTop />,
+					},
+				],
 			},
 			{
 				path: '/news',
@@ -102,9 +109,7 @@ const theme = createTheme({
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<React.StrictMode>
-		<ThemeProvider theme={theme}>
-			<RouterProvider router={router} />
-		</ThemeProvider>
-	</React.StrictMode>,
+	<ThemeProvider theme={theme}>
+		<RouterProvider router={router} />
+	</ThemeProvider>,
 );

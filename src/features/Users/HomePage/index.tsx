@@ -1,14 +1,14 @@
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
+import type { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../../../components/HPHeader';
 
-export const HomePage = () => {
+export const HomePage: FC = () => {
 	return (
 		<>
-			<Header title='aaa' />
+			<Header title='パンパカパーン' />
 
 			<Container>
-				<Box>ホームページ</Box>
 				<Outlet />
 			</Container>
 		</>

@@ -1,5 +1,6 @@
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,6 +18,8 @@ type Props = {
 
 export const Header: FC<Props> = (props: Props) => {
 	const { title } = props;
+
+	const themeColor = '#9F764A';
 
 	const navigate = useNavigate();
 
@@ -42,27 +45,34 @@ export const Header: FC<Props> = (props: Props) => {
 			<AppBar
 				sx={{
 					position: 'fixed',
-					color: '#FFF',
-					backgroundColor: '#fff0',
-					boxShadow: 'none',
+					color: themeColor,
+					backgroundColor: '#FFFFFF90',
+					height: 90,
+					width: '100%',
+					textWrap: 'nowrap',
+					whiteSpace: 'nowrap',
 				}}
 			>
 				<Container maxWidth='xl'>
-					<Toolbar disableGutters>
+					<Toolbar
+						sx={{
+							height: 90,
+						}}
+					>
 						<Typography
 							variant='h6'
 							noWrap
 							component='a'
 							onClick={() => {
-								navigate('/top');
+								navigate('/');
 							}}
 							sx={{
 								mr: 2,
 								display: { xs: 'none', md: 'flex' },
 								letterSpacing: '.3rem',
-								color: '#FFF',
 								textDecoration: 'none',
 								cursor: 'pointer',
+								lineHeight: '90px',
 							}}
 						>
 							{title}
@@ -103,35 +113,48 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 							>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/blog'>ブログ</Link>
+									<Link to='/blog'>ニュース</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/news/list'>お知らせ</Link>
+									<Link to='/news/list'>ストーリー</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/recruit/list'>採用情報</Link>
+									<Link to='/recruit/list'>嵜本のパン</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/home-page'>ホームページ</Link>
+									<Link to='/home-page'>ショップ</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>ECサイト</Link>
+									<Link to='/ec-site'>コラム</Link>
+								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/ec-site'>よくあるご質問</Link>
+								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/ec-site'>採用情報</Link>
+								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/ec-site'>ストア</Link>
+								</MenuItem>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Link to='/ec-site'>ご予約</Link>
 								</MenuItem>
 							</Menu>
 						</Box>
+
 						<Typography
 							variant='h5'
 							noWrap
 							component='a'
 							onClick={() => {
-								navigate('/top');
+								navigate('/');
 							}}
 							sx={{
 								mr: 2,
 								display: { xs: 'flex', md: 'none' },
 								flexGrow: 1,
 								letterSpacing: '.3rem',
-								color: '#FFF',
+								color: themeColor,
 								textDecoration: 'none',
 								cursor: 'pointer',
 							}}
@@ -143,6 +166,7 @@ export const Header: FC<Props> = (props: Props) => {
 								flexGrow: 1,
 								display: { xs: 'none', md: 'flex' },
 								alignItems: 'center',
+								justifyContent: 'flex-end',
 							}}
 						>
 							<Link
@@ -151,13 +175,15 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/blog'
 								style={{
-									color: '#FFF',
+									color: themeColor,
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
 								}}
 							>
-								ブログ
+								ニュース
 							</Link>
 							<Link
 								onClick={() => {
@@ -165,13 +191,15 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/news/list'
 								style={{
-									color: '#FFF',
+									color: themeColor,
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
 								}}
 							>
-								お知らせ
+								ストーリー
 							</Link>
 							<Link
 								onClick={() => {
@@ -179,13 +207,15 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/recruit/list'
 								style={{
-									color: '#FFF',
+									color: themeColor,
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
 								}}
 							>
-								採用情報
+								嵜本のパン
 							</Link>
 							<Link
 								onClick={() => {
@@ -193,13 +223,15 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/home-page'
 								style={{
-									color: '#FFF',
+									color: themeColor,
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
 								}}
 							>
-								ホームページ
+								ショップ
 							</Link>
 							<Link
 								onClick={() => {
@@ -207,14 +239,76 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 								to='/ec-site'
 								style={{
-									color: '#FFF',
+									color: themeColor,
 									fontSize: '14px',
 									padding: '6px 8px',
 									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
 								}}
 							>
-								ECサイト
+								コラム
 							</Link>
+							<Link
+								onClick={() => {
+									setAnchorElNav(null);
+								}}
+								to='/ec-site'
+								style={{
+									color: themeColor,
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
+								}}
+							>
+								よくあるご質問
+							</Link>
+							<Link
+								onClick={() => {
+									setAnchorElNav(null);
+								}}
+								to='/ec-site'
+								style={{
+									color: themeColor,
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+									width: '8%',
+									textAlign: 'center',
+								}}
+							>
+								採用情報
+							</Link>
+							<Button
+								sx={{
+									color: '#FFF',
+									backgroundColor: themeColor,
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+									borderRadius: 0,
+									height: 90,
+									width: '8%',
+								}}
+							>
+								ストア
+							</Button>
+							<Button
+								sx={{
+									color: '#FFF',
+									backgroundColor: '#B89A80',
+									fontSize: '14px',
+									padding: '6px 8px',
+									textDecorationLine: 'none',
+									borderRadius: 0,
+									height: 90,
+									width: '8%',
+								}}
+							>
+								ご予約
+							</Button>
 						</Box>
 
 						<Box sx={{ flexGrow: 0 }}>
@@ -251,7 +345,7 @@ export const Header: FC<Props> = (props: Props) => {
 					</Toolbar>
 				</Container>
 			</AppBar>
-			<Box sx={{ height: 64, width: '100%' }} />
+			<Box sx={{ height: 90, width: '100%' }} />
 		</>
 	);
 };
