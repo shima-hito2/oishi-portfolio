@@ -1,14 +1,13 @@
+// import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../../components/Header';
 
 export const Page = () => {
 	// const navigate = useNavigate();
 	// useEffect(() => {
-	// 	navigate('blog');
-	// }, []);
+	// 	navigate('top');
+	// }, [navigate]);
 	return (
 		<>
-			<Header title='ポートフォリオ' />
 			<Outlet />
 		</>
 	);

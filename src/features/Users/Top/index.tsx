@@ -1,10 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import type { FC } from 'react';
+import { Header } from '../../../components/Header';
 import { getImage } from '../../../getImagePath';
 
 export const Top: FC = () => {
 	return (
 		<>
+			<Header title='ポートフォリオ' />
 			<Box
 				sx={{
 					height: '100vh',

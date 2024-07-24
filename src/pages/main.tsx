@@ -15,6 +15,7 @@ import { Page as AdminTop } from './Admin';
 import { Page as Users } from './Users';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { HomePage } from '../features/Users/HomePage';
 
 const router = createHashRouter([
 	{
@@ -28,6 +29,14 @@ const router = createHashRouter([
 			{
 				path: '/blog',
 				element: <Blog />,
+			},
+			{
+				path: '/ec-site',
+				element: <Blog />,
+			},
+			{
+				path: '/home-page',
+				element: <HomePage />,
 			},
 			{
 				path: '/news',
