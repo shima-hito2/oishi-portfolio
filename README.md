@@ -7,3 +7,7 @@
 
 # ローカルでの実行方法
 > npm run dev コマンド実行
+
+# デプロイ方法
+> npm run build コマンド実行
+> npm run deploy コマンド実行
