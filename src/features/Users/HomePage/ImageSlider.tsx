@@ -1,17 +1,7 @@
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import { useTheme } from '@mui/material/styles';
 import type { FC } from 'react';
-import * as React from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import Carousel from 'react-material-ui-carousel';
 import { getImage } from '../../../getImagePath';
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
 	{
@@ -36,100 +26,68 @@ const images = [
 	},
 ];
 
+const themeColor = '#9F764A';
+
 export const ImageSlider: FC = () => {
-	const theme = useTheme();
-	const [activeStep, setActiveStep] = React.useState(0);
-	const maxSteps = images.length;
-
-	const themeColor = '#9F764A';
-
-	const handleNext = () => {
-		setActiveStep(prevActiveStep => prevActiveStep + 1);
-	};
-
-	const handleBack = () => {
-		setActiveStep(prevActiveStep => prevActiveStep - 1);
-	};
-
-	const handleStepChange = (step: number) => {
-		setActiveStep(step);
-	};
 	return (
-		<Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-			<Paper
-				square
-				elevation={0}
-				sx={{
-					display: 'flex',
-					alignItems: 'center',
-					height: 50,
-					pl: 2,
-					bgcolor: 'background.default',
+		<Box sx={{ pt: 8, height: 600 }}>
+			<Carousel
+				autoPlay={true} //自動でCarouselを動かすかどうか(true or false)
+				//stopAutoPlayOnHover = {true} Carouselの上にマウスを置いている間、自動スクロールを継続するかどうか
+				//interval = {4000} 自動でCarouselを動かす時間の間隔(ミリ秒単位)
+				animation='slide' //(fade or slide) Carouselのアニメーションの種類を変更
+				//duration = {500} アニメーションの長さを定義
+				//swipe = {true} スワイプで動かせるかどうか
+				//indicators = {true} インジケーター(下の丸いアイコン)が必要かどうか
+				// navButtonsAlwaysVisible={true} //常に矢印アイコンを表示するかどうか
+				navButtonsAlwaysInvisible={true} //常に矢印アイコンを非表示にするかどうか
+				//cycleNavigation = {true} //最後のスライドから「次へ」の矢印アイコンを押した時に最初にスライドに動かせるようにするかどうか
+				//fullHeightHover = {true} //次/前のボタンがItem要素の高さ全体をカバーし、ホバー時にボタンを表示するかどうか
+
+				indicatorIconButtonProps={{//アクティブでない下の丸いアイコンの設定
+					style: {
+						padding: '10px',//位置調整
+						color: '#DEDEDE',
+					}
 				}}
-			/>
-			<AutoPlaySwipeableViews
-				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-				index={activeStep}
-				onChangeIndex={handleStepChange}
-				enableMouseEvents
-			>
-				{images.map((step, index) => (
+				activeIndicatorIconButtonProps={{//アクティブな下の丸いアイコンの設定
+					style: {
+						color: themeColor,
+					}
+				}}
+				indicatorContainerProps={{
+					style: {
+						margin: "3px 0px 0px 0px"
+					}
+				}}
+				navButtonsWrapperProps={{
+					style: {
+						marginTop: "55px",
+					}
+				}}
+				navButtonsProps={{
+					style: {
+						color: "rgb(0,0,0,1)",
+						background: "rgb(255,255,255,0)",
+					}
+				}}>
+				{images.map((step) => (
 					<div key={step.label}>
-						{Math.abs(activeStep - index) <= 2 ? (
-							<Box
-								component='img'
-								sx={{
-									height: 510,
-									display: 'block',
-									maxWidth: 800,
-									overflow: 'hidden',
-									width: '100%',
-									margin: '0 auto',
-								}}
-								src={step.imgPath}
-							/>
-						) : null}
+						<Box
+							component='img'
+							sx={{
+								height: 510,
+								display: 'block',
+								maxWidth: 800,
+								overflow: 'hidden',
+								width: '100%',
+								margin: '0 auto',
+							}}
+							src={step.imgPath}
+						/>
 					</div>
 				))}
-			</AutoPlaySwipeableViews>
-			<MobileStepper
-				steps={maxSteps}
-				position='static'
-				activeStep={activeStep}
-				sx={{
-					'.css-26w9jf-MuiMobileStepper-dot': {
-						backgroundColor: themeColor,
-					},
-				}}
-				nextButton={
-					<Button
-						size='small'
-						onClick={handleNext}
-						disabled={activeStep === maxSteps - 1}
-						sx={{ color: themeColor }}
-					>
-						{theme.direction === 'rtl' ? (
-							<KeyboardArrowLeft />
-						) : (
-							<KeyboardArrowRight />
-						)}
-					</Button>
-				}
-				backButton={
-					<Button
-						size='small'
-						onClick={handleBack}
-						disabled={activeStep === 0}
-						sx={{ color: themeColor }}
-					>
-						{theme.direction === 'rtl' ? (
-							<KeyboardArrowRight />
-						) : (
-							<KeyboardArrowLeft />
-						)}
-					</Button>
-				}
-			/>
+			</Carousel>
 		</Box>
 	);
 };
