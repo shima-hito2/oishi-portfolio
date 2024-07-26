@@ -31,6 +31,7 @@ const themeColor = '#9F764A';
 export const ImageSlider: FC = () => {
 	return (
 		<Box sx={{ pt: 8, height: 600 }}>
+			{/* カルーセル */}
 			<Carousel
 				autoPlay={true} //自動でCarouselを動かすかどうか(true or false)
 				//stopAutoPlayOnHover = {true} Carouselの上にマウスを置いている間、自動スクロールを継続するかどうか
