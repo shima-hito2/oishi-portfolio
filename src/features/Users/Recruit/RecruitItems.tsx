@@ -7,7 +7,6 @@ type Props = {
 	item: {
 		id: string;
 		imgPath: string;
-		datetime: string;
 		title: string;
 		detail: string;
 		salary: string;
@@ -42,9 +41,6 @@ export const RecruitItems: FC<Props> = (props: Props) => {
 					src={item.imgPath}
 					alt={item.imgPath}
 				/>
-				<Typography>
-					{dateToString(item.datetime, 'YYYY/MM/DD')}
-				</Typography>
 				<Typography>{item.title}</Typography>
 			</Box>
 		</>

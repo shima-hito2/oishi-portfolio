@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import type { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { dateToString } from '../../../time';
 import { items } from './DummyData';
 
 export const RecruitPage: FC = () => {
@@ -12,9 +11,6 @@ export const RecruitPage: FC = () => {
 
 	return (
 		<Box>
-			<Typography>
-				{dateToString(item?.datetime ?? '', 'YYYY/MM/DD')}
-			</Typography>
 			<Typography sx={{ fontSize: 24, my: 2 }}>{item?.title}</Typography>
 			<img
 				style={{ width: 'auto', height: '245px' }}

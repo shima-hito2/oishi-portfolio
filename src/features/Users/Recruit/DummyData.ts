@@ -8,7 +8,6 @@ export const items = [
 	{
 		id: '1',
 		imgPath: getImage('recruit1.png'),
-		datetime: '2022/12/5',
 		title: 'フロントエンドエンジニア募集',
 		detail: '当社では、最新のWeb技術を駆使してプロジェクトを進めるフロントエンドエンジニアを募集しています。経験者優遇。',
 		salary: '年収：500万円〜700万円',
@@ -18,7 +17,6 @@ export const items = [
 	{
 		id: '2',
 		imgPath: getImage('recruit2.png'),
-		datetime: '2024/7/15',
 		title: 'バックエンドエンジニア募集',
 		detail: 'サーバーサイドの設計・開発を担当するバックエンドエンジニアを募集しています。高いスキルと経験を持つ方を歓迎します。',
 		salary: '年収：600万円〜800万円',
@@ -28,7 +26,6 @@ export const items = [
 	{
 		id: '3',
 		imgPath: getImage('recruit3.png'),
-		datetime: '2024/7/16',
 		title: 'プロジェクトマネージャー募集',
 		detail: 'プロジェクト全体を統括するプロジェクトマネージャーを募集しています。リーダーシップとコミュニケーション能力が求められます。',
 		salary: '年収：700万円〜900万円',
@@ -38,7 +35,6 @@ export const items = [
 	{
 		id: '4',
 		imgPath: getImage('recruit4.png'),
-		datetime: '2024/7/17',
 		title: 'デザイナー募集',
 		detail: 'クリエイティブなデザインを担当するデザイナーを募集しています。UI/UXの知識がある方を優遇します。',
 		salary: '年収：500万円〜700万円',
