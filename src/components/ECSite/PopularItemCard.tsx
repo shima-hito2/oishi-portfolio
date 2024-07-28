@@ -1,4 +1,3 @@
-// src/components/ECSite/PopularItemCard.tsx
 import {
 	Box,
 	Card,
@@ -27,7 +26,7 @@ export const PopularItemCard: FC<PopularItemCardProps> = ({
 	return (
 		<Card
 			sx={{
-				height: id <= 3 ? '100%' : '80%',
+				height: '100%',
 				position: 'relative',
 			}}
 		>
@@ -37,6 +36,7 @@ export const PopularItemCard: FC<PopularItemCardProps> = ({
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'space-between',
+					alignItems: 'flex-start',
 				}}
 			>
 				<CardMedia
@@ -51,21 +51,33 @@ export const PopularItemCard: FC<PopularItemCardProps> = ({
 						gutterBottom
 						variant='h6'
 						component='div'
-						sx={{ fontSize: id <= 3 ? '1.25rem' : '1rem' }}
+						sx={{
+							fontSize: id <= 3 ? '1.25rem' : '1rem',
+							overflow: 'hidden',
+							textOverflow: 'ellipsis',
+							maxHeight: '60px',
+						}}
 					>
 						{name}
 					</Typography>
 					<Typography
 						variant='body2'
 						color='textSecondary'
-						sx={{ fontSize: id <= 3 ? '1rem' : '0.875rem' }}
+						sx={{
+							fontSize: id <= 3 ? '1rem' : '0.875rem',
+							whiteSpace: 'nowrap',
+							overflow: 'hidden',
+							textOverflow: 'ellipsis',
+						}}
 					>
 						{description}
 					</Typography>
 					<Typography
 						variant='body2'
 						color='textSecondary'
-						sx={{ fontSize: id <= 3 ? '1rem' : '0.875rem' }}
+						sx={{
+							fontSize: id <= 3 ? '1rem' : '0.875rem',
+						}}
 					>
 						{price}
 					</Typography>

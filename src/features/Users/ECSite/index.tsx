@@ -32,7 +32,12 @@ export const ECSite: FC = () => {
 				>
 					人気アイテム
 				</Typography>
-				<Grid container spacing={2} justifyContent='center'>
+				<Grid
+					container
+					spacing={2}
+					justifyContent='center'
+					sx={{ marginBottom: '30px' }}
+				>
 					{popularItems.slice(0, 3).map(item => (
 						<Grid item xs={12} sm={6} md={4} lg={4} key={item.id}>
 							<PopularItemCard {...item} />
