@@ -34,6 +34,12 @@ const router = createHashRouter([
 			{
 				path: '/ec-site',
 				element: <ECSite />,
+				// children: [
+				// 	{
+				// 		path: '/ec-site/contact',
+				// 		element: <ECContact />,
+				// 	},
+				// ],
 			},
 			{
 				path: '/home-page',
