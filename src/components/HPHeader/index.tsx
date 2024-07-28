@@ -11,6 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { type FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { themeColor } from '../../features/Users/HomePage';
 
 type Props = {
 	title: string;
@@ -18,8 +19,6 @@ type Props = {
 
 export const Header: FC<Props> = (props: Props) => {
 	const { title } = props;
-
-	const themeColor = '#9F764A';
 
 	const navigate = useNavigate();
 

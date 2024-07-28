@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import type { FC } from 'react';
 import Carousel from 'react-material-ui-carousel';
+import { themeColor } from '.';
 import { getImage } from '../../../getImagePath';
 
 const images = [
@@ -25,8 +26,6 @@ const images = [
 		imgPath: getImage('homePage/image5.png'),
 	},
 ];
-
-const themeColor = '#9F764A';
 
 export const ImageSlider: FC = () => {
 	return (

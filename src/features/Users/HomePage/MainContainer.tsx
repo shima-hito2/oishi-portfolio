@@ -1,9 +1,9 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import type { FC } from 'react';
+import { themeColor } from '.';
 import { MapComponent } from './MapComponent';
 
 export const MainContainer: FC = () => {
-	const themeColor = '#9F764A';
 	return (
 		<>
 			<Container sx={{ textAlign: 'center', color: themeColor }}>

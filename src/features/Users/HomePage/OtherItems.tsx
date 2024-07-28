@@ -1,37 +1,41 @@
 import { Box, Typography } from "@mui/material";
 import type { FC } from "react"
 import Carousel from "react-material-ui-carousel";
+import { themeColor } from ".";
 import { getImage } from "../../../getImagePath";
 
 const images = [
     {
-        label: 'San Francisco – Oakland Bay Bridge, United States',
-        imgPath: '1',
+        label: 'パンA',
+        price: '200',
+        imgPath: getImage('homePage/image1.png'),
     },
     {
-        label: 'Bird',
-        imgPath: '2',
+        label: 'パンB',
+        price: '400',
+        imgPath: getImage('homePage/image2.png'),
     },
     {
-        label: 'Bali, Indonesia',
-        imgPath: '3',
+        label: 'パンC',
+        price: '260',
+        imgPath: getImage('homePage/image3.png'),
     },
     {
-        label: 'Goč, Serbia',
-        imgPath: '4',
+        label: 'パンD',
+        price: '150',
+        imgPath: getImage('homePage/image4.png'),
     },
     {
-        label: 'Goč, Serbia2',
-        imgPath: '5',
+        label: 'パンE',
+        price: '700',
+        imgPath: getImage('homePage/image5.png'),
     },
 ];
-
-const themeColor = '#9F764A';
 
 export const OtherItems: FC = () => {
     return (
         <>
-            <Box sx={{ pt: 8, height: 200, textAlign: 'center', background: `url(${getImage('homepage/background.png')}) center top` }}>
+            <Box sx={{ pt: 8, height: 400, textAlign: 'center', background: `url(${getImage('homepage/background.png')}) center top` }}>
                 <Typography sx={{ fontSize: 32 }}>
                     その他のおすすめ商品一覧
                 </Typography>
@@ -80,52 +84,55 @@ export const OtherItems: FC = () => {
                         <Box key={step.label} sx={{ display: 'flex' }}>
                             <Box
                                 sx={{
-                                    height: 200,
+                                    height: 300,
                                     display: 'block',
                                     maxWidth: 800,
                                     overflow: 'hidden',
                                     width: '100%',
                                     mx: 1,
-                                    border: '1px solid #000',
                                     fontSize: 40,
-                                    textAlign: 'center',
-                                    lineHeight: '200px'
+                                    textAlign: 'left',
+                                    backgroundColor: '#FFF'
                                 }}
                             >
-                                {idx === 0 ? images[images.length - 1].imgPath : images[idx - 1].imgPath}
+                                <Box sx={{ height: 200, width: 800 }} component='img' src={idx === 0 ? images[images.length - 1].imgPath : images[idx - 1].imgPath} />
+                                <Typography sx={{ color: themeColor }}>{idx === 0 ? images[images.length - 1].label : images[idx - 1].label}</Typography>
+                                <Typography sx={{ color: themeColor }}>{idx === 0 ? images[images.length - 1].price : images[idx - 1].price}yen / 税込</Typography>
                             </Box>
                             <Box
                                 sx={{
-                                    height: 200,
+                                    height: 300,
                                     display: 'block',
                                     maxWidth: 800,
                                     overflow: 'hidden',
                                     width: '100%',
                                     mx: 1,
-                                    border: '1px solid #000',
                                     fontSize: 40,
-                                    textAlign: 'center',
-                                    lineHeight: '200px'
+                                    textAlign: 'left',
+                                    backgroundColor: '#FFF'
+                                }}
+                            >
+                                <Box sx={{ height: 200, width: 800 }} component='img' src={step.imgPath} />
+                                <Typography sx={{ color: themeColor }}>{step.label}</Typography>
+                                <Typography sx={{ color: themeColor }}>{step.price}yen / 税込</Typography>
+                            </Box>
+                            <Box
+                                sx={{
+                                    height: 300,
+                                    display: 'block',
+                                    maxWidth: 800,
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    mx: 1,
+                                    fontSize: 40,
+                                    textAlign: 'left',
+                                    backgroundColor: '#FFF'
                                 }}
                             >
 
-                                {step.imgPath}
-                            </Box>
-                            <Box
-                                sx={{
-                                    height: 200,
-                                    display: 'block',
-                                    maxWidth: 800,
-                                    overflow: 'hidden',
-                                    width: '100%',
-                                    mx: 1,
-                                    border: '1px solid #000',
-                                    fontSize: 40,
-                                    textAlign: 'center',
-                                    lineHeight: '200px'
-                                }}
-                            >
-                                {idx === images.length - 1 ? images[0].imgPath : images[idx + 1].imgPath}
+                                <Box sx={{ height: 200, width: 800 }} component='img' src={idx === images.length - 1 ? images[0].imgPath : images[idx + 1].imgPath} />
+                                <Typography sx={{ color: themeColor }}>{idx === images.length - 1 ? images[0].label : images[idx + 1].label}</Typography>
+                                <Typography sx={{ color: themeColor }}>{idx === images.length - 1 ? images[0].price : images[idx + 1].price}yen / 税込</Typography>
                             </Box>
                         </Box>
                     ))}
