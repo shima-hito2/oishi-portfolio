@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import type { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { dateToString } from '../../../time';
 
 type Props = {
 	item: {

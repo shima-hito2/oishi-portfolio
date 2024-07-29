@@ -1,13 +1,36 @@
 import InfoIcon from '@mui/icons-material/Info';
-import { Box, Button, List, ListItem, Typography } from '@mui/material';
+import {
+	Box,
+	Button,
+	List,
+	ListItem,
+	Typography,
+	useMediaQuery,
+	useTheme,
+} from '@mui/material';
 import { notifications } from '../../data/ECSite/notifications';
 export const Notifications: React.FC = () => {
+	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<Box
-			sx={{ p: 2, bgcolor: 'background.paper', borderRadius: 1, mb: 4 }}
-			display='flex'
+			sx={{
+				p: 2,
+				bgcolor: 'background.paper',
+				borderRadius: 1,
+				mb: 4,
+				display: 'flex',
+				flexDirection: isSmallScreen ? 'column' : 'row',
+				alignItems: isSmallScreen ? 'flex-start' : 'center',
+			}}
 		>
-			<Box display='flex' alignItems='center' mb={2}>
+			<Box
+				display='flex'
+				alignItems='center'
+				mb={isSmallScreen ? 2 : 0}
+				mr={isSmallScreen ? 0 : 2}
+			>
 				<Button
 					variant='contained'
 					color='primary'
