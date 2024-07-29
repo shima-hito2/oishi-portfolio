@@ -8,7 +8,6 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Box, Typography } from "@mui/material"
 import type { FC } from "react"
 import { themeColor } from "../../features/Users/HomePage"
-import { getImage } from '../../getImagePath';
 
 export const Footer: FC = () => {
     return (
@@ -20,10 +19,6 @@ export const Footer: FC = () => {
                         <Typography>FOLLOW US</Typography>
                         <InstagramIcon />
                         <TwitterIcon />
-                        {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
-                        <image href={getImage('homePage/lineIcon.svg')} />
-                        {/* <svg width="100" height="100" xmlns={getImage('homePage/lineIcon.svg')} viewBox="0 0 100 100">
-                        </svg> */}
                         <EmailIcon />
                         <YouTubeIcon />
                         <PinterestIcon />
@@ -34,6 +29,47 @@ export const Footer: FC = () => {
                         <KeyboardArrowUpIcon />
                     </Box>
                 </Box>
+
+                <Box sx={{ width: '100%', textAlign: 'center', fontSize: 40 }}>パンパカパーン</Box>
+
+                <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
+                    <Box>
+                        <Typography>ホーム</Typography>
+                        <Typography>オンラインストア</Typography>
+                        <Typography>食パンのご予約</Typography>
+                    </Box>
+                    <Box>
+                        <Typography>パンラインナップ</Typography>
+                        <Box sx={{ borderLeft: `1px solid ${themeColor}`, pl: 1 }}>
+                            <Typography>AAA</Typography>
+                            <Typography>BBB</Typography>
+                            <Typography>CCC</Typography>
+                        </Box>
+                    </Box>
+                    <Box>
+                        <Typography>&珈琲ラインナップ</Typography>
+                        <Box sx={{ borderLeft: `1px solid ${themeColor}`, pl: 1 }}>
+                            <Typography>AAA</Typography>
+                            <Typography>BBB</Typography>
+                        </Box>
+                    </Box>
+                    <Box>
+                        <Typography>ショップ</Typography>
+                        <Box sx={{ borderLeft: `1px solid ${themeColor}`, pl: 1 }}>
+                            <Typography>AAA</Typography>
+                            <Typography>BBB</Typography>
+                        </Box>
+                    </Box>
+                    <Box>
+                        <Typography>よくあるご質問</Typography>
+                        <Typography>採用情報</Typography>
+                        <Typography>個人情報保護方針</Typography>
+                        <Typography>会社概要</Typography>
+                        <Typography>お問い合わせ</Typography>
+                    </Box>
+                </Box>
+
+                <Box sx={{ width: '100%', textAlign: 'center' }}>© Sakimoto Bakery ALL Rights Reserved.</Box>
 
             </Box >
         </>

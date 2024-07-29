@@ -35,7 +35,7 @@ const images = [
 export const OtherItems: FC = () => {
     return (
         <>
-            <Box sx={{ pt: 8, height: 400, textAlign: 'center', background: `url(${getImage('homepage/background.png')}) center top` }}>
+            <Box sx={{ pt: 8, height: 400, width: '100%', textAlign: 'center', background: `url(${getImage('homepage/background.png')}) center top` }}>
                 <Typography sx={{ fontSize: 32 }}>
                     その他のおすすめ商品一覧
                 </Typography>
@@ -81,12 +81,12 @@ export const OtherItems: FC = () => {
                         }
                     }}>
                     {images.map((step, idx) => (
-                        <Box key={step.label} sx={{ display: 'flex' }}>
+                        <Box key={step.label} sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Box
                                 sx={{
                                     height: 300,
                                     display: 'block',
-                                    maxWidth: 800,
+                                    maxWidth: 400,
                                     overflow: 'hidden',
                                     width: '100%',
                                     mx: 1,
@@ -103,7 +103,7 @@ export const OtherItems: FC = () => {
                                 sx={{
                                     height: 300,
                                     display: 'block',
-                                    maxWidth: 800,
+                                    maxWidth: 400,
                                     overflow: 'hidden',
                                     width: '100%',
                                     mx: 1,
@@ -120,7 +120,7 @@ export const OtherItems: FC = () => {
                                 sx={{
                                     height: 300,
                                     display: 'block',
-                                    maxWidth: 800,
+                                    maxWidth: 400,
                                     overflow: 'hidden',
                                     width: '100%',
                                     mx: 1,
