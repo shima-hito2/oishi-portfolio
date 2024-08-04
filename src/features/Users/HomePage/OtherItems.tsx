@@ -35,7 +35,7 @@ const images = [
 export const OtherItems: FC = () => {
     return (
         <>
-            <Box sx={{ pt: 8, height: 400, width: '100%', textAlign: 'center', background: `url(${getImage('homepage/background.png')}) center top` }}>
+            <Box sx={{ pt: 8, height: 400, width: '100%', textAlign: 'center', background: `url(${getImage('homePage/background.png')}) center top` }}>
                 <Typography sx={{ fontSize: 32, color: themeColor }}>
                     その他のおすすめ商品一覧
                 </Typography>
