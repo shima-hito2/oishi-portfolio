@@ -3,8 +3,8 @@ import './index.css';
 
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Blog } from '../features/Users/Blog';
+import { ItemList as HPItemList } from '../features/Users/HomePage/ItemList';
 import { Top as HPTop } from '../features/Users/HomePage/Top';
-import { NewsList } from '../features/Users/News/NewsList';
 import { NewsPage } from '../features/Users/News/NewsPage';
 import { News } from '../features/Users/News/index';
 import { RecruitList } from '../features/Users/Recruit/RecruitList';
@@ -17,6 +17,9 @@ import { Page as Users } from './Users';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ECSite } from '../features/Users/ECSite';
 import { HomePage } from '../features/Users/HomePage';
+import { Faq } from '../features/Users/HomePage/Faq';
+import { MapComponent } from '../features/Users/HomePage/MapComponent';
+import { NewsList } from '../features/Users/News/NewsList';
 
 const router = createHashRouter([
 	{
@@ -48,6 +51,22 @@ const router = createHashRouter([
 					{
 						path: '/home-page',
 						element: <HPTop />,
+					},
+					{
+						path: '/home-page/news',
+						element: <HPItemList title='NEWS' />,
+					},
+					{
+						path: '/home-page/access',
+						element: <MapComponent />,
+					},
+					{
+						path: '/home-page/column',
+						element: <HPItemList title='COLUMN' />,
+					},
+					{
+						path: '/home-page/faq',
+						element: <Faq />,
 					},
 				],
 			},

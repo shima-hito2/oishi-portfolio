@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import type { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Footer } from '../../../components/HPFooter';
@@ -11,11 +10,9 @@ export const themeColor = '#9F764A';
 export const HomePage: FC = () => {
 	return (
 		<>
-			<Header title='パンパカパーン' />
+			<Header title='HPポートフォリオ' />
 
-			<Container>
-				<Outlet />
-			</Container>
+			<Outlet />
 
 			<OtherItems />
 			<News />

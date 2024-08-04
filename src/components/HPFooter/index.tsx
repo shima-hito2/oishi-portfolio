@@ -30,7 +30,7 @@ export const Footer: FC = () => {
                     </Box>
                 </Box>
 
-                <Box sx={{ width: '100%', textAlign: 'center', fontSize: 40 }}>パンパカパーン</Box>
+                <Box sx={{ width: '100%', textAlign: 'center', fontSize: 40 }}>HPポートフォリオ</Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
                     <Box>

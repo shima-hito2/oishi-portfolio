@@ -1,6 +1,4 @@
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -23,21 +21,13 @@ export const Header: FC<Props> = (props: Props) => {
 	const navigate = useNavigate();
 
 	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-	const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget);
 	};
-	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElUser(event.currentTarget);
-	};
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
-	};
-
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
 	};
 	return (
 		<>
@@ -45,7 +35,7 @@ export const Header: FC<Props> = (props: Props) => {
 				sx={{
 					position: 'fixed',
 					color: themeColor,
-					backgroundColor: '#FFFFFF90',
+					backgroundColor: '#FFFFFF',
 					height: 90,
 					width: '100%',
 					textWrap: 'nowrap',
@@ -63,7 +53,7 @@ export const Header: FC<Props> = (props: Props) => {
 							noWrap
 							component='a'
 							onClick={() => {
-								navigate('/');
+								navigate('/home-page');
 							}}
 							sx={{
 								mr: 2,
@@ -89,7 +79,7 @@ export const Header: FC<Props> = (props: Props) => {
 								aria-controls='menu-appbar'
 								aria-haspopup='true'
 								onClick={handleOpenNavMenu}
-								sx={{ color: '#FFF' }}
+								sx={{ color: themeColor }}
 							>
 								<MenuIcon fontSize='large' />
 							</IconButton>
@@ -112,31 +102,16 @@ export const Header: FC<Props> = (props: Props) => {
 								}}
 							>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/blog'>ニュース</Link>
+									<Link to='/home-page/news'>ニュース</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/news/list'>ストーリー</Link>
+									<Link to='/home-page/access'>アクセス</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/recruit/list'>嵜本のパン</Link>
+									<Link to='/home-page/column'>コラム</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/home-page'>ショップ</Link>
-								</MenuItem>
-								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>コラム</Link>
-								</MenuItem>
-								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>よくあるご質問</Link>
-								</MenuItem>
-								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>採用情報</Link>
-								</MenuItem>
-								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>ストア</Link>
-								</MenuItem>
-								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/ec-site'>ご予約</Link>
+									<Link to='/home-page/faq'>よくあるご質問</Link>
 								</MenuItem>
 							</Menu>
 						</Box>
@@ -172,7 +147,7 @@ export const Header: FC<Props> = (props: Props) => {
 								onClick={() => {
 									setAnchorElNav(null);
 								}}
-								to='/blog'
+								to='/home-page/news'
 								style={{
 									color: themeColor,
 									fontSize: '14px',
@@ -188,7 +163,7 @@ export const Header: FC<Props> = (props: Props) => {
 								onClick={() => {
 									setAnchorElNav(null);
 								}}
-								to='/news/list'
+								to='/home-page/access'
 								style={{
 									color: themeColor,
 									fontSize: '14px',
@@ -198,45 +173,13 @@ export const Header: FC<Props> = (props: Props) => {
 									textAlign: 'center',
 								}}
 							>
-								ストーリー
+								アクセス
 							</Link>
 							<Link
 								onClick={() => {
 									setAnchorElNav(null);
 								}}
-								to='/recruit/list'
-								style={{
-									color: themeColor,
-									fontSize: '14px',
-									padding: '6px 8px',
-									textDecorationLine: 'none',
-									width: '8%',
-									textAlign: 'center',
-								}}
-							>
-								嵜本のパン
-							</Link>
-							<Link
-								onClick={() => {
-									setAnchorElNav(null);
-								}}
-								to='/home-page'
-								style={{
-									color: themeColor,
-									fontSize: '14px',
-									padding: '6px 8px',
-									textDecorationLine: 'none',
-									width: '8%',
-									textAlign: 'center',
-								}}
-							>
-								ショップ
-							</Link>
-							<Link
-								onClick={() => {
-									setAnchorElNav(null);
-								}}
-								to='/ec-site'
+								to='/home-page/column'
 								style={{
 									color: themeColor,
 									fontSize: '14px',
@@ -252,7 +195,7 @@ export const Header: FC<Props> = (props: Props) => {
 								onClick={() => {
 									setAnchorElNav(null);
 								}}
-								to='/ec-site'
+								to='/home-page/faq'
 								style={{
 									color: themeColor,
 									fontSize: '14px',
@@ -264,82 +207,6 @@ export const Header: FC<Props> = (props: Props) => {
 							>
 								よくあるご質問
 							</Link>
-							<Link
-								onClick={() => {
-									setAnchorElNav(null);
-								}}
-								to='/ec-site'
-								style={{
-									color: themeColor,
-									fontSize: '14px',
-									padding: '6px 8px',
-									textDecorationLine: 'none',
-									width: '8%',
-									textAlign: 'center',
-								}}
-							>
-								採用情報
-							</Link>
-							<Button
-								sx={{
-									color: '#FFF',
-									backgroundColor: themeColor,
-									fontSize: '14px',
-									padding: '6px 8px',
-									textDecorationLine: 'none',
-									borderRadius: 0,
-									height: 90,
-									width: '8%',
-								}}
-							>
-								ストア
-							</Button>
-							<Button
-								sx={{
-									color: '#FFF',
-									backgroundColor: '#B89A80',
-									fontSize: '14px',
-									padding: '6px 8px',
-									textDecorationLine: 'none',
-									borderRadius: 0,
-									height: 90,
-									width: '8%',
-								}}
-							>
-								ご予約
-							</Button>
-						</Box>
-
-						<Box sx={{ flexGrow: 0 }}>
-							<IconButton
-								onClick={handleOpenUserMenu}
-								sx={{ p: 0, color: '#FFF' }}
-								size='large'
-							>
-								<AccountCircle />
-							</IconButton>
-							<Menu
-								sx={{ mt: '45px' }}
-								id='menu-appbar'
-								anchorEl={anchorElUser}
-								anchorOrigin={{
-									vertical: 'top',
-									horizontal: 'right',
-								}}
-								keepMounted
-								transformOrigin={{
-									vertical: 'top',
-									horizontal: 'right',
-								}}
-								open={Boolean(anchorElUser)}
-								onClose={handleCloseUserMenu}
-							>
-								<MenuItem onClick={handleCloseUserMenu}>
-									<Typography textAlign='center'>
-										ログアウト
-									</Typography>
-								</MenuItem>
-							</Menu>
 						</Box>
 					</Toolbar>
 				</Container>

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import type { FC } from 'react';
+import { NewsItems } from '../HomePage/NewsItems';
 import { items } from './DummyData';
-import { NewsItems } from './NewsItems';
 
 export const NewsList: FC = () => {
 	return (
