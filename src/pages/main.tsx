@@ -15,7 +15,7 @@ import { Page as AdminTop } from './Admin';
 import { Page as Users } from './Users';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { ECSite } from '../features/Users/ECSite';
+import { ECSite } from '../features/Users/ECSite/index.tsx';
 import { HomePage } from '../features/Users/HomePage';
 import { Faq } from '../features/Users/HomePage/Faq';
 import { MapComponent } from '../features/Users/HomePage/MapComponent';
@@ -37,12 +37,6 @@ const router = createHashRouter([
 			{
 				path: '/ec-site',
 				element: <ECSite />,
-				// children: [
-				// 	{
-				// 		path: '/ec-site/contact',
-				// 		element: <ECContact />,
-				// 	},
-				// ],
 			},
 			{
 				path: '/home-page',
