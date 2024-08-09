@@ -76,9 +76,9 @@ export const ImageSlider: FC = () => {
 						<Box
 							component='img'
 							sx={{
-								height: 510,
+								height: 'calc( 100vw * 0.25 )',
 								display: 'block',
-								maxWidth: 800,
+								maxWidth: '60%',
 								overflow: 'hidden',
 								width: '100%',
 								margin: '0 auto',

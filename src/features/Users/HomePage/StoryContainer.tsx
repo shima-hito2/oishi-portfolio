@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material"
 import type { FC } from "react"
 import { themeColor } from "."
 import { getImage } from "../../../getImagePath"
+import { ImageSlider } from "./ImageSlider"
 
 export const StoryContainer: FC = () => {
     return (
@@ -10,6 +11,7 @@ export const StoryContainer: FC = () => {
                 <Typography sx={{ fontSize: 40 }}>題名</Typography>
                 <Typography>説明説明説明説明説明説明説明説明説明説明説明</Typography>
             </Box>
+            <ImageSlider />
             <Box sx={{ position: 'relative', py: 8, width: '100%', textAlign: 'center', background: `url(${getImage('homePage/background.png')}) center top` }}>
                 <Typography sx={{ fontSize: 28 }}>テキストテキストテキストテキストテキスト</Typography>
                 <Typography sx={{ fontSize: 28 }}>説明説明説明説明説明説明説明説明説明説明説明</Typography>
