@@ -6,22 +6,26 @@ import { Header2 } from './index2';
 export const HeaderSwither: FC = () => {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
-	const headerType = params.get('header');
+	const headerType = params.get('header') ?? '';
 
-	// biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
-	let HeaderComponent;
+	// let HeaderComponent: FC<Props>;
 
-	switch (headerType) {
-		case '1':
-			HeaderComponent = Header;
-			break;
-		case '2':
-			HeaderComponent = Header2;
-			break;
-		default:
-			HeaderComponent = Header;
-			break;
-	}
+	// switch (headerType) {
+	// 	case '1':
+	// 		HeaderComponent = Header;
+	// 		break;
+	// 	case '2':
+	// 		HeaderComponent = Header2;
+	// 		break;
+	// 	default:
+	// 		HeaderComponent = Header;
+	// 		break;
+	// }
 
-	return <HeaderComponent title={'ECサイト'} />;
+	return (
+		<>
+			{headerType === '1' && (<Header />)}
+			{headerType === '2' && (<Header2 title={'ECサイト'} />)}
+		</>
+	);
 };

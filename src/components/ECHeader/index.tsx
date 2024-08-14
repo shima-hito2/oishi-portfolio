@@ -1,5 +1,24 @@
-import { AppBar, Box, IconButton, Link, Toolbar } from '@mui/material';
+import { AppBar, Box, IconButton, Link, type SxProps, type Theme, Toolbar } from '@mui/material';
 import type React from 'react';
+import type { ReactNode } from 'react';
+
+type Props = {
+	children: ReactNode
+	name?: string
+	sx?: SxProps<Theme>
+}
+
+const CustomLink: React.FC<Props> = (props: Props) => {
+	const { children, name: names, sx } = props;
+	return (
+		<>
+			<Link href='#' sx={sx} className='active'>
+				{children}
+				{names}
+			</Link>
+		</>
+	)
+}
 
 export const Header: React.FC = () => {
 	return (
@@ -34,9 +53,10 @@ export const Header: React.FC = () => {
 						<Link href='#' sx={linkStyle} className='active'>
 							ホーム
 						</Link>
-						<Link href='#' sx={linkStyle}>
+						{/* <Link href='#' sx={linkStyle}>
 							メニュー
-						</Link>
+						</Link> */}
+						<CustomLink name='名前' sx={{ alignItems: 'center' }}>メニュー</CustomLink>
 						<Link href='#' sx={linkStyle}>
 							キャンペーン
 						</Link>
