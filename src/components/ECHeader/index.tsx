@@ -1,7 +1,7 @@
 import { AppBar, Box, IconButton, Link, Toolbar } from '@mui/material';
 import type React from 'react';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
 	return (
 		<AppBar
 			position='static'
