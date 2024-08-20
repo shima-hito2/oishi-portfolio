@@ -23,7 +23,7 @@ export const MapComponent: FC = () => {
 			<Container sx={{ textAlign: 'center', color: themeColor, pt: 2 }}>
 				{/* shop情報 */}
 				<Typography>shop</Typography>
-				<Typography>ベーカリーカフェ 大阪初號本店</Typography>
+				<Typography>ポートフォリオ 大阪本店</Typography>
 
 				<Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
 					<Box
@@ -68,9 +68,7 @@ export const MapComponent: FC = () => {
 							<Typography>Address</Typography>
 						</Box>
 						<Box sx={{ width: '70%' }}>
-							<Typography>
-								大阪市浪速区難波中2-3-18 2階
-							</Typography>
+							<Typography>大阪市□□□区9-99-999</Typography>
 						</Box>
 					</Box>
 					<Box sx={{ display: 'flex' }}>
@@ -78,7 +76,7 @@ export const MapComponent: FC = () => {
 							<Typography>Tel</Typography>
 						</Box>
 						<Box sx={{ width: '70%' }}>
-							<Typography>06-6634-6900</Typography>
+							<Typography>00-0000-0000</Typography>
 						</Box>
 					</Box>
 					<Box sx={{ display: 'flex' }}>
@@ -104,8 +102,8 @@ export const MapComponent: FC = () => {
 				{/* biome-ignore lint/a11y/useIframeTitle: <explanation> */}
 				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
 				<iframe
-					src='https://maps.google.co.jp/maps?output=embed&q=嵜本 ベーカリーカフェ'
-					style={{ width: 800, height: 600, marginBottom: 40 }}
+					src='https://maps.google.co.jp/maps?output=embed&q=大阪難波駅'
+					style={{ width: '80%', height: '50vh', marginBottom: 40 }}
 				></iframe>
 			</Container>
 		</>

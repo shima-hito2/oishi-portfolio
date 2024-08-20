@@ -15,7 +15,7 @@ export const Footer: FC = () => {
 			<Box
 				sx={{
 					backgroundColor: '#E1DDD1',
-					height: 400,
+					py: 2,
 					width: '100%',
 					color: themeColor,
 				}}

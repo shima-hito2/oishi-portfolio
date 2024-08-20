@@ -29,7 +29,7 @@ const images = [
 
 export const ImageSlider: FC = () => {
 	return (
-		<Box sx={{ pt: 8, height: 600 }}>
+		<Box sx={{ py: 8 }}>
 			{/* カルーセル */}
 			<Carousel
 				autoPlay={true} //自動でCarouselを動かすかどうか(true or false)

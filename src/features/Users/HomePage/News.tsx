@@ -10,14 +10,14 @@ export const News: FC = () => {
 			imgPath: getImage('image1.png'),
 			date: '2024/07/25',
 			content:
-				'【嵜本珈琲】8月1日(木)より、どっしりとした苦みとコク、すっきりとしたアフターテイストのシーズナルブレンドが登場します。',
+				'【嵜本珈琲】テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
 		},
 		{
 			id: 1,
 			imgPath: getImage('image2.png'),
 			date: '2024/07/25',
 			content:
-				'8月1日(木)より、8月限定『ふんわり香る桃の食パン』が新登場。',
+				'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
 		},
 		{
 			id: 1,
@@ -34,32 +34,39 @@ export const News: FC = () => {
 				<Typography sx={{ fontSize: 40 }}>ニュース</Typography>
 			</Box>
 
-			<Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+			<Box
+				sx={{
+					width: '100%',
+					display: { md: 'flex' },
+					justifyContent: 'space-around',
+				}}
+			>
 				{/* データ取得の際に2件に絞る想定 */}
-				<Box sx={{ width: '40%', display: 'flex' }}>
+				<Box sx={{ width: { md: '40%' }, display: 'flex' }}>
 					<Box
 						component={'img'}
 						src={items[0].imgPath}
 						sx={{ width: '50%', mr: 2 }}
 					/>
-					<Box>
+					<Box sx={{ width: '50%' }}>
 						<Typography
-							sx={{ color: themeColor, textWrap: 'nowrap' }}
+							sx={{ color: themeColor, wordBreak: 'break-all' }}
 						>
 							New {items[0].date}/IMFORMATION
 						</Typography>
 						<Typography>{items[0].content}</Typography>
 					</Box>
 				</Box>
-				<Box sx={{ width: '40%', display: 'flex' }}>
+				<Box sx={{ pt: { xs: 4 } }} />
+				<Box sx={{ width: { md: '40%' }, display: 'flex' }}>
 					<Box
 						component={'img'}
 						src={items[1].imgPath}
 						sx={{ width: '50%', mr: 2 }}
 					/>
-					<Box>
+					<Box sx={{ width: '50%' }}>
 						<Typography
-							sx={{ color: themeColor, textWrap: 'nowrap' }}
+							sx={{ color: themeColor, wordBreak: 'break-all' }}
 						>
 							New {items[1].date}/IMFORMATION
 						</Typography>
