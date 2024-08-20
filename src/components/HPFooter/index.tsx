@@ -13,9 +13,8 @@ export const Footer: FC = () => {
     return (
         <>
             <Box sx={{ backgroundColor: '#E1DDD1', height: 400, width: '100%', color: themeColor }}>
-
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Box sx={{ display: 'flex', gap: 8, p: 8 }}>
+                <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', pt: 4 }}>
+                    <Box sx={{ display: 'flex', gap: 8, p: 2 }}>
                         <Typography>FOLLOW US</Typography>
                         <InstagramIcon />
                         <TwitterIcon />
@@ -24,7 +23,7 @@ export const Footer: FC = () => {
                         <PinterestIcon />
                         <FacebookIcon />
                     </Box>
-                    <Box sx={{ display: 'flex', gap: 8, p: 8 }}>
+                    <Box sx={{ display: 'flex', gap: 8, p: 2 }}>
                         <Typography>PAGE TOP</Typography>
                         <KeyboardArrowUpIcon />
                     </Box>
@@ -32,7 +31,7 @@ export const Footer: FC = () => {
 
                 <Box sx={{ width: '100%', textAlign: 'center', fontSize: 40 }}>HPポートフォリオ</Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
+                <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-around' }}>
                     <Box>
                         <Typography>ホーム</Typography>
                         <Typography>オンラインストア</Typography>
