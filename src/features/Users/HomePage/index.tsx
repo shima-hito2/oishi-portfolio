@@ -17,7 +17,6 @@ export const HomePage: FC = () => {
 			<OtherItems />
 			<News />
 			<Footer />
-
 		</>
 	);
 };

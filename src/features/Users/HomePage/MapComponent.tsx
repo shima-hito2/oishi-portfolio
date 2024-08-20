@@ -5,7 +5,18 @@ import { themeColor } from '.';
 export const MapComponent: FC = () => {
 	return (
 		<>
-			<Box sx={{ width: '100%', height: 200, backgroundColor: '#808080', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+			<Box
+				sx={{
+					width: '100%',
+					height: 200,
+					backgroundColor: '#808080',
+					color: '#fff',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'column',
+				}}
+			>
 				<Typography sx={{ fontSize: 40 }}>ACCESS</Typography>
 				<Typography>店舗のアクセス情報を掲載します。</Typography>
 			</Box>
@@ -92,7 +103,8 @@ export const MapComponent: FC = () => {
 				</Box>
 				{/* biome-ignore lint/a11y/useIframeTitle: <explanation> */}
 				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-				<iframe src="https://maps.google.co.jp/maps?output=embed&q=嵜本 ベーカリーカフェ"
+				<iframe
+					src='https://maps.google.co.jp/maps?output=embed&q=嵜本 ベーカリーカフェ'
 					style={{ width: 800, height: 600, marginBottom: 40 }}
 				></iframe>
 			</Container>
