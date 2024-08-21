@@ -5,14 +5,25 @@ import { themeColor } from '.';
 export const MapComponent: FC = () => {
 	return (
 		<>
-			<Box sx={{ width: '100%', height: 200, backgroundColor: '#808080', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+			<Box
+				sx={{
+					width: '100%',
+					height: 200,
+					backgroundColor: '#808080',
+					color: '#fff',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'column',
+				}}
+			>
 				<Typography sx={{ fontSize: 40 }}>ACCESS</Typography>
 				<Typography>店舗のアクセス情報を掲載します。</Typography>
 			</Box>
 			<Container sx={{ textAlign: 'center', color: themeColor, pt: 2 }}>
 				{/* shop情報 */}
 				<Typography>shop</Typography>
-				<Typography>ベーカリーカフェ 大阪初號本店</Typography>
+				<Typography>ポートフォリオ 大阪本店</Typography>
 
 				<Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
 					<Box
@@ -57,9 +68,7 @@ export const MapComponent: FC = () => {
 							<Typography>Address</Typography>
 						</Box>
 						<Box sx={{ width: '70%' }}>
-							<Typography>
-								大阪市浪速区難波中2-3-18 2階
-							</Typography>
+							<Typography>大阪市□□□区9-99-999</Typography>
 						</Box>
 					</Box>
 					<Box sx={{ display: 'flex' }}>
@@ -67,7 +76,7 @@ export const MapComponent: FC = () => {
 							<Typography>Tel</Typography>
 						</Box>
 						<Box sx={{ width: '70%' }}>
-							<Typography>06-6634-6900</Typography>
+							<Typography>00-0000-0000</Typography>
 						</Box>
 					</Box>
 					<Box sx={{ display: 'flex' }}>
@@ -92,8 +101,9 @@ export const MapComponent: FC = () => {
 				</Box>
 				{/* biome-ignore lint/a11y/useIframeTitle: <explanation> */}
 				{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-				<iframe src="https://maps.google.co.jp/maps?output=embed&q=嵜本 ベーカリーカフェ"
-					style={{ width: 800, height: 600, marginBottom: 40 }}
+				<iframe
+					src='https://maps.google.co.jp/maps?output=embed&q=大阪難波駅'
+					style={{ width: '80%', height: '50vh', marginBottom: 40 }}
 				></iframe>
 			</Container>
 		</>

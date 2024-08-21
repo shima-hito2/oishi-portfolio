@@ -29,7 +29,7 @@ const images = [
 
 export const ImageSlider: FC = () => {
 	return (
-		<Box sx={{ pt: 8, height: 600 }}>
+		<Box sx={{ py: 8 }}>
 			{/* カルーセル */}
 			<Carousel
 				autoPlay={true} //自動でCarouselを動かすかどうか(true or false)
@@ -44,34 +44,37 @@ export const ImageSlider: FC = () => {
 				//cycleNavigation = {true} //最後のスライドから「次へ」の矢印アイコンを押した時に最初にスライドに動かせるようにするかどうか
 				//fullHeightHover = {true} //次/前のボタンがItem要素の高さ全体をカバーし、ホバー時にボタンを表示するかどうか
 
-				indicatorIconButtonProps={{//アクティブでない下の丸いアイコンの設定
+				indicatorIconButtonProps={{
+					//アクティブでない下の丸いアイコンの設定
 					style: {
-						padding: '10px',//位置調整
+						padding: '10px', //位置調整
 						color: '#DEDEDE',
-					}
+					},
 				}}
-				activeIndicatorIconButtonProps={{//アクティブな下の丸いアイコンの設定
+				activeIndicatorIconButtonProps={{
+					//アクティブな下の丸いアイコンの設定
 					style: {
 						color: themeColor,
-					}
+					},
 				}}
 				indicatorContainerProps={{
 					style: {
-						margin: "3px 0px 0px 0px"
-					}
+						margin: '3px 0px 0px 0px',
+					},
 				}}
 				navButtonsWrapperProps={{
 					style: {
-						marginTop: "55px",
-					}
+						marginTop: '55px',
+					},
 				}}
 				navButtonsProps={{
 					style: {
-						color: "rgb(0,0,0,1)",
-						background: "rgb(255,255,255,0)",
-					}
-				}}>
-				{images.map((step) => (
+						color: 'rgb(0,0,0,1)',
+						background: 'rgb(255,255,255,0)',
+					},
+				}}
+			>
+				{images.map(step => (
 					<div key={step.label}>
 						<Box
 							component='img'

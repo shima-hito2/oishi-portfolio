@@ -111,7 +111,9 @@ export const Header: FC<Props> = (props: Props) => {
 									<Link to='/home-page/column'>コラム</Link>
 								</MenuItem>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Link to='/home-page/faq'>よくあるご質問</Link>
+									<Link to='/home-page/faq'>
+										よくあるご質問
+									</Link>
 								</MenuItem>
 							</Menu>
 						</Box>
