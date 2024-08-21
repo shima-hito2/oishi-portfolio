@@ -4,6 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {
 	AppBar,
 	Box,
+	Button,
 	Drawer,
 	IconButton,
 	Link,
@@ -22,6 +23,7 @@ import {
 	useState,
 } from 'react';
 import { useLocation } from 'react-router-dom';
+import { AccountDialog } from '../../features/Users/ECSite/AccountDialog';
 
 type Props = {
 	children: ReactNode;
@@ -76,6 +78,8 @@ const CustomInfoLink: FC<Props> = (props: Props) => {
 
 export const Header: FC = () => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
+
+	const [accountOpen, setAccountOpen] = useState(false);
 
 	const toggleDrawer =
 		(open: boolean) => (event: KeyboardEvent | MouseEvent) => {
@@ -147,22 +151,41 @@ export const Header: FC = () => {
 					</Box>
 				</Box>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<CustomInfoLink
-						href='#'
-						sx={{ display: 'flex', alignItems: 'center' }}
+					<Button
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							textDecoration: 'none',
+							color: '#666',
+							fontSize: '14px',
+						}}
+						onClick={() => {
+							setAccountOpen(true);
+						}}
 					>
-						アカウント
 						<AccountCircleIcon />
-					</CustomInfoLink>
-					<CustomInfoLink
-						href='#'
-						sx={{ display: 'flex', alignItems: 'center' }}
+						アカウント
+					</Button>
+					<Button
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							textDecoration: 'none',
+							color: '#666',
+							fontSize: '14px',
+						}}
 					>
-						カート
 						<ShoppingCartIcon />
-					</CustomInfoLink>
+						カート
+					</Button>
 				</Box>
 			</Toolbar>
+			<AccountDialog
+				accountOpen={accountOpen}
+				setAccountOpen={setAccountOpen}
+			/>
 		</AppBar>
 	);
 };
