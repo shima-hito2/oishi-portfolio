@@ -1,4 +1,6 @@
 import { Menu as MenuIcon } from '@mui/icons-material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {
 	AppBar,
 	Box,
@@ -60,6 +62,8 @@ const CustomInfoLink: FC<Props> = (props: Props) => {
 		<Link
 			href={href}
 			sx={{
+				display: 'flex',
+				alignItems: 'center',
 				textDecoration: 'none',
 				color: '#666',
 				fontSize: '14px',
@@ -143,8 +147,20 @@ export const Header: FC = () => {
 					</Box>
 				</Box>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<CustomInfoLink href='#'>アカウント</CustomInfoLink>
-					<CustomInfoLink href='#'>カート</CustomInfoLink>
+					<CustomInfoLink
+						href='#'
+						sx={{ display: 'flex', alignItems: 'center' }}
+					>
+						アカウント
+						<AccountCircleIcon />
+					</CustomInfoLink>
+					<CustomInfoLink
+						href='#'
+						sx={{ display: 'flex', alignItems: 'center' }}
+					>
+						カート
+						<ShoppingCartIcon />
+					</CustomInfoLink>
 				</Box>
 			</Toolbar>
 		</AppBar>
