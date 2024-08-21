@@ -58,24 +58,6 @@ const CustomLink: FC<Props> = (props: Props) => {
 	);
 };
 
-const CustomInfoLink: FC<Props> = (props: Props) => {
-	const { children, href } = props;
-	return (
-		<Link
-			href={href}
-			sx={{
-				display: 'flex',
-				alignItems: 'center',
-				textDecoration: 'none',
-				color: '#666',
-				fontSize: '14px',
-			}}
-		>
-			{children}
-		</Link>
-	);
-};
-
 export const Header: FC = () => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 

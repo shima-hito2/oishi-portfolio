@@ -4,10 +4,8 @@ import {
 	Dialog,
 	DialogActions,
 	DialogContent,
-	DialogContentText,
 	DialogTitle,
 	TextField,
-	Typography,
 } from '@mui/material';
 import type { FC } from 'react';
 
