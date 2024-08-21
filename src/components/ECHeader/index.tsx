@@ -118,20 +118,11 @@ export const Header: FC = () => {
 								<ListItem component='a' href='/ec-site'>
 									<ListItemText primary='ホーム' />
 								</ListItem>
-								<ListItem component='a' href='/ec-site/menu'>
-									<ListItemText primary='メニュー' />
+								<ListItem component='a' href='/ec-site/news'>
+									<ListItemText primary='お知らせ' />
 								</ListItem>
-								<ListItem component='a' href='/ec-site/family'>
-									<ListItemText primary='ファミリー' />
-								</ListItem>
-								<ListItem
-									component='a'
-									href='/ec-site/sustainability'
-								>
-									<ListItemText primary='サステナビリティ' />
-								</ListItem>
-								<ListItem component='a' href='/ec-site/shop'>
-									<ListItemText primary='お店・サービス' />
+								<ListItem component='a' href='/ec-site/product'>
+									<ListItemText primary='商品一覧' />
 								</ListItem>
 							</List>
 						</Box>
@@ -145,22 +136,15 @@ export const Header: FC = () => {
 						}}
 					>
 						<CustomLink href='/ec-site'>ホーム</CustomLink>
-						<CustomLink href='/ec-site/menu'>メニュー</CustomLink>
-						<CustomLink href='/ec-site/family'>
-							ファミリー
-						</CustomLink>
-						<CustomLink href='/ec-site/sustainability'>
-							サステナビリティ
-						</CustomLink>
-						<CustomLink href='/ec-site/shop'>
-							お店・サービス
+						<CustomLink href='/ec-site/news'>お知らせ</CustomLink>
+						<CustomLink href='/ec-site/product'>
+							商品一覧
 						</CustomLink>
 					</Box>
 				</Box>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<CustomInfoLink href='#'>採用情報</CustomInfoLink>
-					<CustomInfoLink href='#'>公式アプリ</CustomInfoLink>
-					<CustomInfoLink href='#'>検索</CustomInfoLink>
+					<CustomInfoLink href='#'>アカウント</CustomInfoLink>
+					<CustomInfoLink href='#'>カート</CustomInfoLink>
 				</Box>
 			</Toolbar>
 		</AppBar>
