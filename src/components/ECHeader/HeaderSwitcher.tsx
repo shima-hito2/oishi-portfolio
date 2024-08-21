@@ -8,24 +8,11 @@ export const HeaderSwither: FC = () => {
 	const params = new URLSearchParams(location.search);
 	const headerType = params.get('header') ?? '';
 
-	// let HeaderComponent: FC<Props>;
-
-	// switch (headerType) {
-	// 	case '1':
-	// 		HeaderComponent = Header;
-	// 		break;
-	// 	case '2':
-	// 		HeaderComponent = Header2;
-	// 		break;
-	// 	default:
-	// 		HeaderComponent = Header;
-	// 		break;
-	// }
-
 	return (
 		<>
-			{headerType === '1' && (<Header />)}
-			{headerType === '2' && (<Header2 title={'ECサイト'} />)}
+			{headerType === '1' && <Header />}
+			{headerType === '2' && <Header2 title={'ECサイト'} />}
+			{headerType !== '1' && headerType !== '2' && <Header />}
 		</>
 	);
 };

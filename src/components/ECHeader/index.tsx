@@ -1,26 +1,90 @@
-import { AppBar, Box, IconButton, Link, type SxProps, type Theme, Toolbar } from '@mui/material';
-import type React from 'react';
-import type { ReactNode } from 'react';
+import { Menu as MenuIcon } from '@mui/icons-material';
+import {
+	AppBar,
+	Box,
+	Drawer,
+	IconButton,
+	Link,
+	List,
+	ListItem,
+	ListItemText,
+	type SxProps,
+	type Theme,
+	Toolbar,
+} from '@mui/material';
+import {
+	type FC,
+	type KeyboardEvent,
+	type MouseEvent,
+	type ReactNode,
+	useState,
+} from 'react';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
-	children: ReactNode
-	name?: string
-	sx?: SxProps<Theme>
-}
+	children: ReactNode;
+	href: string;
+	sx?: SxProps<Theme>;
+};
 
-const CustomLink: React.FC<Props> = (props: Props) => {
-	const { children, name: names, sx } = props;
+const CustomLink: FC<Props> = (props: Props) => {
+	const { children, href } = props;
+	const location = useLocation();
+	const isActive = location.pathname === href;
 	return (
-		<>
-			<Link href='#' sx={sx} className='active'>
-				{children}
-				{names}
-			</Link>
-		</>
-	)
-}
+		<Link
+			href={href}
+			sx={{
+				textDecoration: 'none',
+				color: 'black',
+				fontWeight: 'bold',
+				'&:hover': {
+					color: 'red',
+					borderBottom: '2px solid red',
+				},
+				'&.active': {
+					color: 'red',
+					borderBottom: '2px solid red',
+				},
+			}}
+			className={isActive ? 'active' : ''}
+		>
+			{children}
+		</Link>
+	);
+};
 
-export const Header: React.FC = () => {
+const CustomInfoLink: FC<Props> = (props: Props) => {
+	const { children, href } = props;
+	return (
+		<Link
+			href={href}
+			sx={{
+				textDecoration: 'none',
+				color: '#666',
+				fontSize: '14px',
+			}}
+		>
+			{children}
+		</Link>
+	);
+};
+
+export const Header: FC = () => {
+	const [drawerOpen, setDrawerOpen] = useState(false);
+
+	const toggleDrawer =
+		(open: boolean) => (event: KeyboardEvent | MouseEvent) => {
+			if (
+				event.type === 'keydown' &&
+				((event as KeyboardEvent).key === 'Tab' ||
+					(event as KeyboardEvent).key === 'Shift')
+			) {
+				return;
+			}
+			setDrawerOpen(open);
+		};
+
 	return (
 		<AppBar
 			position='static'
@@ -34,14 +98,44 @@ export const Header: React.FC = () => {
 						edge='start'
 						color='inherit'
 						aria-label='menu'
-						sx={{ mr: 2 }}
+						sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}
+						onClick={toggleDrawer(true)}
 					>
-						<img
-							src='/path/to/logo.png'
-							alt='Logo'
-							style={{ width: '40px' }}
-						/>
+						<MenuIcon />
 					</IconButton>
+					<Drawer
+						anchor='left'
+						open={drawerOpen}
+						onClose={toggleDrawer(false)}
+					>
+						<Box
+							sx={{ width: 250 }}
+							role='presentation'
+							onClick={toggleDrawer(false)}
+							onKeyDown={toggleDrawer(false)}
+						>
+							<List>
+								<ListItem component='a' href='/ec-site'>
+									<ListItemText primary='ホーム' />
+								</ListItem>
+								<ListItem component='a' href='/ec-site/menu'>
+									<ListItemText primary='メニュー' />
+								</ListItem>
+								<ListItem component='a' href='/ec-site/family'>
+									<ListItemText primary='ファミリー' />
+								</ListItem>
+								<ListItem
+									component='a'
+									href='/ec-site/sustainability'
+								>
+									<ListItemText primary='サステナビリティ' />
+								</ListItem>
+								<ListItem component='a' href='/ec-site/shop'>
+									<ListItemText primary='お店・サービス' />
+								</ListItem>
+							</List>
+						</Box>
+					</Drawer>
 					<Box
 						component='nav'
 						sx={{
@@ -50,61 +144,25 @@ export const Header: React.FC = () => {
 							ml: 3,
 						}}
 					>
-						<Link href='#' sx={linkStyle} className='active'>
-							ホーム
-						</Link>
-						{/* <Link href='#' sx={linkStyle}>
-							メニュー
-						</Link> */}
-						<CustomLink name='名前' sx={{ alignItems: 'center' }}>メニュー</CustomLink>
-						<Link href='#' sx={linkStyle}>
-							キャンペーン
-						</Link>
-						<Link href='#' sx={linkStyle}>
+						<CustomLink href='/ec-site'>ホーム</CustomLink>
+						<CustomLink href='/ec-site/menu'>メニュー</CustomLink>
+						<CustomLink href='/ec-site/family'>
 							ファミリー
-						</Link>
-						<Link href='#' sx={linkStyle}>
+						</CustomLink>
+						<CustomLink href='/ec-site/sustainability'>
 							サステナビリティ
-						</Link>
-						<Link href='#' sx={linkStyle}>
+						</CustomLink>
+						<CustomLink href='/ec-site/shop'>
 							お店・サービス
-						</Link>
+						</CustomLink>
 					</Box>
 				</Box>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<Link href='#' sx={infoLinkStyle}>
-						採用情報
-					</Link>
-					<Link href='#' sx={infoLinkStyle}>
-						公式アプリ
-					</Link>
-					<Link href='#' sx={infoLinkStyle}>
-						検索
-					</Link>
+					<CustomInfoLink href='#'>採用情報</CustomInfoLink>
+					<CustomInfoLink href='#'>公式アプリ</CustomInfoLink>
+					<CustomInfoLink href='#'>検索</CustomInfoLink>
 				</Box>
 			</Toolbar>
 		</AppBar>
 	);
 };
-
-const linkStyle = {
-	textDecoration: 'none',
-	color: 'black',
-	fontWeight: 'bold',
-	'&:hover': {
-		color: 'red',
-		borderBottom: '2px solid red',
-	},
-	'&.active': {
-		color: 'red',
-		borderBottom: '2px solid red',
-	},
-};
-
-const infoLinkStyle = {
-	textDecoration: 'none',
-	color: '#666',
-	fontSize: '14px',
-};
-
-export default Header;
