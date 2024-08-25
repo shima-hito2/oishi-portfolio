@@ -10,7 +10,7 @@ export const ECSite: FC = () => {
 	return (
 		<>
 			<HeaderSwither />
-			<main>
+			<main style={{ maxWidth: '1024px', margin: 'auto' }}>
 				<ItemList
 					title='商品一覧'
 					description='商品一覧です'
