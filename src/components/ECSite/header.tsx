@@ -2,7 +2,6 @@ import InfoIcon from '@mui/icons-material/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-// src/components/ECSite/header.tsx
 import {
 	AppBar,
 	Box,

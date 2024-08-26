@@ -15,7 +15,7 @@ export const InfoList: FC<Props> = (props: Props) => {
 
 	const waveSvg = `data:image/svg+xml;base64,${btoa(`
         <svg width="100%" height="600px" xmlns="http://www.w3.org/2000/svg" version="1.1">
-            <path d="M 0 30 Q 50 60 100 30 T 200 30 T 300 30 T 400 30 T 500 30 T 600 30 T 700 30 T 800 30 T 900 30 T 1000 30 T 1100 30 T 1200 30 T 1300 30 T 1400 30 T 1500 30 L 1500 0 L 0 0 Z" fill="#FFFFFF" />
+           <path d="M 0 80 Q 75 160 150 80 T 300 80 T 450 80 T 600 80 T 750 80 T 900 80 T 1050 80 T 1200 80 T 1350 80 T 1500 80 L 1500 0 L 0 0 Z" fill="#FFFFFF" />
         </svg>
     `)}`;
 
@@ -26,14 +26,15 @@ export const InfoList: FC<Props> = (props: Props) => {
 					position: 'relative',
 					backgroundColor: '#FFC0CB',
 					padding: '20px',
+					overflow: 'hidden',
 				}}
 			>
 				<Box
 					sx={{
 						position: 'absolute',
-						top: '20px', // 上からの位置調整
-						left: '-50px', // 左からの位置調整
-						right: 0,
+						top: '50px', // 上からの位置調整
+						left: '-10px', // 左からの位置調整
+						right: '-10px', // 右からの位置調整
 						height: '150px',
 						backgroundImage: `url(${waveSvg})`,
 						transform: 'rotate(-4deg)', // 波線の背景をさらに傾ける

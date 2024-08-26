@@ -1,7 +1,8 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
+import { Box, Grid, IconButton, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type Props = {
 	title: string;
@@ -53,33 +54,22 @@ export const Footer: React.FC<Props> = ({ title }) => {
 						gap={2}
 					>
 						<Link
-							href='/ec-site/contact'
-							color='inherit'
-							underline='none'
+							to={'/ec-site/contact'}
+							style={{ color: '#000', textDecoration: 'none' }}
 						>
 							お問い合わせ
 						</Link>
 						<Typography variant='body2'>|</Typography>
 						<Link
-							href='/ec-site/newsletter'
-							color='inherit'
-							underline='none'
-						>
-							メルマガ登録
-						</Link>
-						<Typography variant='body2'>|</Typography>
-						<Link
-							href='/ec-site/terms'
-							color='inherit'
-							underline='none'
+							to={'/ec-site/terms'}
+							style={{ color: '#000', textDecoration: 'none' }}
 						>
 							特定商取引
 						</Link>
 						<Typography variant='body2'>|</Typography>
 						<Link
-							href='/ec-site/privacy'
-							color='inherit'
-							underline='none'
+							to={'/ec-site/privacy'}
+							style={{ color: '#000', textDecoration: 'none' }}
 						>
 							プライバシーポリシー
 						</Link>

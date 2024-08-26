@@ -15,6 +15,10 @@ import { Page as AdminTop } from './Admin';
 import { Page as Users } from './Users';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ContactPage } from '../features/Users/ECSite/Contact.tsx';
+import { PrivacyPolicyPage } from '../features/Users/ECSite/Privacy.tsx';
+import { TermsPage } from '../features/Users/ECSite/Terms.tsx';
+import { ECSiteTop } from '../features/Users/ECSite/Top.tsx';
 import { ECSite } from '../features/Users/ECSite/index.tsx';
 import { HomePage } from '../features/Users/HomePage';
 import { Faq } from '../features/Users/HomePage/Faq';
@@ -37,6 +41,24 @@ const router = createHashRouter([
 			{
 				path: '/ec-site',
 				element: <ECSite />,
+				children: [
+					{
+						path: '/ec-site',
+						element: <ECSiteTop />,
+					},
+					{
+						path: '/ec-site/terms',
+						element: <TermsPage />,
+					},
+					{
+						path: '/ec-site/privacy',
+						element: <PrivacyPolicyPage />,
+					},
+					{
+						path: '/ec-site/contact',
+						element: <ContactPage />,
+					},
+				],
 			},
 			{
 				path: '/home-page',

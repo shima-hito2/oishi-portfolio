@@ -7,7 +7,6 @@ import {
 	Button,
 	Drawer,
 	IconButton,
-	Link,
 	List,
 	ListItem,
 	ListItemText,
@@ -22,34 +21,28 @@ import {
 	type ReactNode,
 	useState,
 } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AccountDialog } from '../../features/Users/ECSite/AccountDialog';
 
 type Props = {
 	children: ReactNode;
-	href: string;
+	to: string;
 	sx?: SxProps<Theme>;
 };
 
 const CustomLink: FC<Props> = (props: Props) => {
-	const { children, href } = props;
+	const { children, to } = props;
 	const location = useLocation();
-	const isActive = location.pathname === href;
+	const isActive = location.pathname === to;
 	return (
 		<Link
-			href={href}
-			sx={{
+			to={to}
+			style={{
 				textDecoration: 'none',
 				color: 'black',
 				fontWeight: 'bold',
-				'&:hover': {
-					color: 'red',
-					borderBottom: '2px solid red',
-				},
-				'&.active': {
-					color: 'red',
-					borderBottom: '2px solid red',
-				},
+				borderBottom: isActive ? '2px solid red' : 'none',
+				transition: 'color 0.2s',
 			}}
 			className={isActive ? 'active' : ''}
 		>
@@ -60,7 +53,6 @@ const CustomLink: FC<Props> = (props: Props) => {
 
 export const Header: FC = () => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
-
 	const [accountOpen, setAccountOpen] = useState(false);
 
 	const toggleDrawer =
@@ -105,13 +97,34 @@ export const Header: FC = () => {
 							onKeyDown={toggleDrawer(false)}
 						>
 							<List>
-								<ListItem component='a' href='/ec-site'>
+								<ListItem
+									component={Link}
+									to='/ec-site'
+									sx={{
+										textDecoration: 'none',
+										color: 'black',
+									}}
+								>
 									<ListItemText primary='ホーム' />
 								</ListItem>
-								<ListItem component='a' href='/ec-site/news'>
+								<ListItem
+									component={Link}
+									to='/ec-site/news'
+									sx={{
+										textDecoration: 'none',
+										color: 'black',
+									}}
+								>
 									<ListItemText primary='お知らせ' />
 								</ListItem>
-								<ListItem component='a' href='/ec-site/product'>
+								<ListItem
+									component={Link}
+									to='/ec-site/product'
+									sx={{
+										textDecoration: 'none',
+										color: 'black',
+									}}
+								>
 									<ListItemText primary='商品一覧' />
 								</ListItem>
 							</List>
@@ -125,11 +138,9 @@ export const Header: FC = () => {
 							ml: 3,
 						}}
 					>
-						<CustomLink href='/ec-site'>ホーム</CustomLink>
-						<CustomLink href='/ec-site/news'>お知らせ</CustomLink>
-						<CustomLink href='/ec-site/product'>
-							商品一覧
-						</CustomLink>
+						<CustomLink to='/ec-site'>ホーム</CustomLink>
+						<CustomLink to='/ec-site/news'>お知らせ</CustomLink>
+						<CustomLink to='/ec-site/product'>商品一覧</CustomLink>
 					</Box>
 				</Box>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
