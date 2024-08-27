@@ -4,15 +4,15 @@ import { getImage } from '../../../getImagePath';
 
 const items = [
 	{
-		src: getImage('ECSite/image1.png'),
+		src: getImage('ECSite/image4.png'),
 		alt: 'Image 1',
 	},
 	{
-		src: getImage('ECSite/image2.png'),
+		src: getImage('ECSite/image5.png'),
 		alt: 'Image 2',
 	},
 	{
-		src: getImage('ECSite/image3.png'),
+		src: getImage('ECSite/image6.png'),
 		alt: 'Image 3',
 	},
 ];
