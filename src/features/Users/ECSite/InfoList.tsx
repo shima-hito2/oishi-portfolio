@@ -8,10 +8,11 @@ type Props = {
 		date: string;
 		content: string;
 	}[];
+	href: string; // Add a default value or remove the optional '?' if a valid value is always expected
 };
 
 export const InfoList: FC<Props> = (props: Props) => {
-	const { title, items } = props;
+	const { title, items, href } = props;
 
 	const waveSvg = `data:image/svg+xml;base64,${btoa(`
         <svg width="100%" height="600px" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -99,7 +100,7 @@ export const InfoList: FC<Props> = (props: Props) => {
 						))}
 					</Box>
 					<Box sx={{ textAlign: 'right', marginTop: '10px' }}>
-						<Link to={'/ECsite/news'}>一覧へ &gt;</Link>
+						<Link to={href}>一覧へ &gt;</Link>
 					</Box>
 				</Box>
 			</Box>

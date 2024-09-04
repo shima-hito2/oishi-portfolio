@@ -3,9 +3,9 @@ import './index.css';
 
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Blog } from '../features/Users/Blog';
+import { NewsPage } from '../features/Users/ECSite/News.tsx';
 import { ItemList as HPItemList } from '../features/Users/HomePage/ItemList';
 import { Top as HPTop } from '../features/Users/HomePage/Top';
-import { NewsPage } from '../features/Users/News/NewsPage';
 import { News } from '../features/Users/News/index';
 import { RecruitList } from '../features/Users/Recruit/RecruitList';
 import { RecruitPage } from '../features/Users/Recruit/RecruitPage';
@@ -17,6 +17,7 @@ import { Page as Users } from './Users';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ContactPage } from '../features/Users/ECSite/Contact.tsx';
 import { PrivacyPolicyPage } from '../features/Users/ECSite/Privacy.tsx';
+import { ProductPage } from '../features/Users/ECSite/Product.tsx';
 import { TermsPage } from '../features/Users/ECSite/Terms.tsx';
 import { ECSiteTop } from '../features/Users/ECSite/Top.tsx';
 import { ECSite } from '../features/Users/ECSite/index.tsx';
@@ -45,6 +46,14 @@ const router = createHashRouter([
 					{
 						path: '/ec-site',
 						element: <ECSiteTop />,
+					},
+					{
+						path: '/ec-site/news',
+						element: <NewsPage />,
+					},
+					{
+						path: '/ec-site/product',
+						element: <ProductPage />,
 					},
 					{
 						path: '/ec-site/terms',

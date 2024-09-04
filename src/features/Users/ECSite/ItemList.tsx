@@ -17,10 +17,11 @@ type Props = {
 		price?: string;
 		image: string;
 	}[];
+	href?: string;
 };
 
 export const ItemList: FC<Props> = (props: Props) => {
-	const { title, description, items } = props;
+	const { title, description, items, href } = props;
 
 	const waveSvg = `data:image/svg+xml;base64,${btoa(`
 		<svg width="100%" height="500px" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -88,7 +89,7 @@ export const ItemList: FC<Props> = (props: Props) => {
 						))}
 					</Grid>
 					<Box sx={{ textAlign: 'right', marginTop: '10px' }}>
-						<Link href='#' variant='body2'>
+						<Link href={href} variant='body2'>
 							もっと見る &gt;
 						</Link>
 					</Box>
