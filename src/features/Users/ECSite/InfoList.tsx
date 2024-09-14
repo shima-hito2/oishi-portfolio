@@ -3,16 +3,18 @@ import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 type Props = {
+	backgroundColor?: string;
 	title: string;
 	items: {
+		to: string;
 		date: string;
 		content: string;
 	}[];
-	href: string; // Add a default value or remove the optional '?' if a valid value is always expected
+	to?: string;
 };
 
 export const InfoList: FC<Props> = (props: Props) => {
-	const { title, items, href } = props;
+	const { backgroundColor, title, items, to } = props;
 
 	const waveSvg = `data:image/svg+xml;base64,${btoa(`
         <svg width="100%" height="600px" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -25,7 +27,7 @@ export const InfoList: FC<Props> = (props: Props) => {
 			<Box
 				sx={{
 					position: 'relative',
-					backgroundColor: '#FFC0CB',
+					backgroundColor: backgroundColor ?? '#FFC0CB',
 					padding: '20px',
 					overflow: 'hidden',
 				}}
@@ -33,21 +35,21 @@ export const InfoList: FC<Props> = (props: Props) => {
 				<Box
 					sx={{
 						position: 'absolute',
-						top: '50px', // 上からの位置調整
-						left: '-10px', // 左からの位置調整
-						right: '-10px', // 右からの位置調整
+						top: '50px',
+						left: '-10px',
+						right: '-10px',
 						height: '150px',
 						backgroundImage: `url(${waveSvg})`,
-						transform: 'rotate(-4deg)', // 波線の背景をさらに傾ける
-						transformOrigin: 'center', // 中心を基準に回転
+						transform: 'rotate(-4deg)',
+						transformOrigin: 'center',
 						zIndex: 1,
 					}}
 				/>
 				<Box
 					sx={{
 						position: 'relative',
-						zIndex: 2, // 背景の波線よりも前面に表示
-						paddingTop: '80px', // 波線とコンテンツの間隔を調整
+						zIndex: 2,
+						paddingTop: '80px',
 					}}
 				>
 					<Typography variant='h6' gutterBottom>
@@ -66,7 +68,7 @@ export const InfoList: FC<Props> = (props: Props) => {
 								}}
 							>
 								<Link
-									to={`/ECsite/news/${index}`}
+									to={news.to}
 									style={{
 										display: 'flex',
 										justifyContent: 'space-between',
@@ -99,9 +101,11 @@ export const InfoList: FC<Props> = (props: Props) => {
 							</Box>
 						))}
 					</Box>
-					<Box sx={{ textAlign: 'right', marginTop: '10px' }}>
-						<Link to={href}>一覧へ &gt;</Link>
-					</Box>
+					{to && (
+						<Box sx={{ textAlign: 'right', marginTop: '10px' }}>
+							<Link to={to}>一覧へ &gt;</Link>
+						</Box>
+					)}
 				</Box>
 			</Box>
 		</>

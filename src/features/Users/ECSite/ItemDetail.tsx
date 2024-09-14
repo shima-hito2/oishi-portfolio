@@ -1,6 +1,9 @@
 import {
 	Box,
+	Button,
 	Card,
+	CardActionArea,
+	CardActions,
 	CardContent,
 	CardMedia,
 	Grid,
@@ -10,21 +13,18 @@ import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 type Props = {
-	backgroundColor?: string;
 	title: string;
 	description: string;
 	items: {
 		to: string;
 		title: string;
-		price?: string;
+		price: string;
 		image: string;
 	}[];
-	to?: string;
 };
 
-export const ItemList: FC<Props> = (props: Props) => {
-	const { backgroundColor, title, description, items, to } = props;
-
+export const ItemDetail: FC<Props> = (props: Props) => {
+	const { title, description, items } = props;
 	const waveSvg = `data:image/svg+xml;base64,${btoa(`
 		<svg width="100%" height="500px" xmlns="http://www.w3.org/2000/svg" version="1.1">
 			<path d="M 0 80 Q 75 160 150 80 T 300 80 T 450 80 T 600 80 T 750 80 T 900 80 T 1050 80 T 1200 80 T 1350 80 T 1500 80 L 1500 0 L 0 0 Z" fill="#FFFFFF" />
@@ -35,7 +35,7 @@ export const ItemList: FC<Props> = (props: Props) => {
 		<>
 			<Box
 				sx={{
-					backgroundColor: backgroundColor ?? '#F0F0F0',
+					backgroundColor: '#F0F0F0',
 					padding: '20px',
 					overflow: 'hidden',
 					position: 'relative',
@@ -68,38 +68,44 @@ export const ItemList: FC<Props> = (props: Props) => {
 					</Typography>
 					<Grid container spacing={2}>
 						{items.map((item, index) => (
-							<Grid item xs={6} sm={3} md={3} key={index}>
-								<Link
-									to={item.to}
-									style={{ textDecoration: 'none' }}
-								>
-									<Card>
+							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+							<Grid item key={index} xs={12} sm={6} md={4}>
+								<Card>
+									<CardActionArea>
 										<CardMedia
 											component='img'
-											height='80'
+											height='140'
 											image={item.image}
-											alt={item.title}
 										/>
 										<CardContent>
-											<Typography variant='h6'>
+											<Typography
+												variant='h6'
+												gutterBottom
+											>
 												{item.title}
 											</Typography>
-											{item.price && (
-												<Typography variant='body2'>
-													{item.price}
-												</Typography>
-											)}
+											<Typography
+												variant='body2'
+												color='textSecondary'
+											>
+												{item.price}
+											</Typography>
 										</CardContent>
-									</Card>
-								</Link>
+									</CardActionArea>
+									<CardActions>
+										<Link to={item.to}>
+											<Button
+												size='small'
+												color='primary'
+											>
+												詳細を見る
+											</Button>
+										</Link>
+									</CardActions>
+								</Card>
 							</Grid>
 						))}
 					</Grid>
-					{to && (
-						<Box sx={{ textAlign: 'right', marginTop: '10px' }}>
-							<Link to={to}>もっと見る &gt;</Link>
-						</Box>
-					)}
 				</Box>
 			</Box>
 		</>

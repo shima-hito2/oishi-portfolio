@@ -16,8 +16,10 @@ import { Page as Users } from './Users';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ContactPage } from '../features/Users/ECSite/Contact.tsx';
+import { NewsDetail } from '../features/Users/ECSite/NewsDetail.tsx';
 import { PrivacyPolicyPage } from '../features/Users/ECSite/Privacy.tsx';
 import { ProductPage } from '../features/Users/ECSite/Product.tsx';
+import { ProductDetail } from '../features/Users/ECSite/ProductDetail.tsx';
 import { TermsPage } from '../features/Users/ECSite/Terms.tsx';
 import { ECSiteTop } from '../features/Users/ECSite/Top.tsx';
 import { ECSite } from '../features/Users/ECSite/index.tsx';
@@ -48,8 +50,16 @@ const router = createHashRouter([
 						element: <ECSiteTop />,
 					},
 					{
+						path: '/ec-site/news/:id',
+						element: <NewsDetail />,
+					},
+					{
 						path: '/ec-site/news',
 						element: <NewsPage />,
+					},
+					{
+						path: '/ec-site/product/:id',
+						element: <ProductDetail />,
 					},
 					{
 						path: '/ec-site/product',

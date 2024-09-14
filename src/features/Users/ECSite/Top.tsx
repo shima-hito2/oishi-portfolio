@@ -13,9 +13,9 @@ export const ECSiteTop: FC = () => {
 				title='商品一覧'
 				description='商品一覧です'
 				items={productItems}
-				href='/ECSite/product'
+				to='/ECSite/product'
 			/>
-			<InfoList title='お知らせ' items={infoItems} href='/ECSite/news' />
+			<InfoList title='お知らせ' items={infoItems} to='/ECSite/news' />
 		</>
 	);
 };
